@@ -1,7 +1,7 @@
 function newUser() {
     {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://us-central1-first-project-38219.cloudfunctions.net/getuser');
+        xhr.open('GET', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/createuser');
 
 
 
@@ -24,3 +24,27 @@ function newUser() {
                             validName = false;
                             break;
                         }
+
+
+
+
+
+
+
+                    }
+                    if (validName = true)
+                    {
+                        //document.getElementById("taken").innerHTML ="User created";
+                        createuser();
+                        document.getElementById("taken").innerHTML ="User created";
+                    }
+
+
+
+                } else {
+                    console.log('Error: ' + xhr.status); // An error occurred during the request.
+                }}};
+// Send the request to https://us-central1-my-cool-web-app-37271.cloudfunctions.net/getuser
+        xhr.send(null);
+    }
+}
