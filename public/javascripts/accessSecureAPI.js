@@ -9,12 +9,13 @@ function getSecureAPI(){
         if(xhr.readyState === DONE) {
             if(xhr.status === OK) {
                 response.innerHTML = xhr.responseText;
+            } else {
+                response.innerHTML = "Unauthorized to view this content";
+                console.log('Error: '+xhr.status); // An error occured during the request
             }
-        } else {
-            response.innerHTML = "Unauthorized to view this content";
-            console.log('Error: '+xhr.status); // An error occured during the request
-            }
-        };
+        }
+    };
+    
     // set the authorization header
     xhr.setRequestHeader('Authorization','Bearer '+getCookie('accessToken'))
     xhr.send(null);

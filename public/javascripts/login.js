@@ -8,7 +8,6 @@ function login() {
         var user = userCredential.user;
         document.cookie = "accessToken="+user.za;
         document.cookie = "uid=" + user.uid;
-        console.log(user);
         window.location.href= "/secure.html"    
         // ... 
     })
