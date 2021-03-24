@@ -20,6 +20,10 @@
   <!-- Custom styles for this template -->
   <link href="css/one-page-wonder.min.css" rel="stylesheet">
 
+  <!-- Load client side javascripts -->
+  <script src="javascripts/getcomments.js"></script>
+  <script src="javascripts/postcomments.js"></script>
+  <script src="javascripts/deletecomment.js"></script>
 </head>
 
 <body>
@@ -77,6 +81,11 @@
   </section>
 
   <section>
+    <input type="text" placeholder="@handle" id="handle">
+    <input type="text" placeholder="@comment" id="comment">
+    <button onclick="postComment()">Post</button>
+    <button onclick="getComments()">Get Comments</button>
+    <div id="comments"></div>
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
