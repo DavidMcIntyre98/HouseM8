@@ -6,6 +6,8 @@ function login() {
     .then((userCredential) => {
         // Signed in    
         var user = userCredential.user;
+        document.cookie = "accessToken="+user.za;
+        document.cookie = "uid=" + user.uid;
         window.location.href= "/secure.html"    
         // ... 
     })
