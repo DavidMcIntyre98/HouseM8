@@ -1,6 +1,12 @@
 function getSecureAPI(){
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/authorizedendpoint');
+    console.log(location.hostname);
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+        xhr.open('GET', 'http://localhost:5001/housem8-8b9bf/us-central1/authorizedendpoint');
+    }
+    else {
+        xhr.open('GET', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/authorizedendpoint');
+    }
 
     // Track the state changes of the request.
     xhr.onreadystatechange = function() {
