@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Profile</title>
+    
+</head>
+<body>
+    <h1>Upload user data</h1>
+    <div id="filesubmit">
+        <input type="file" class="file-select" accept="image/*"/>
+        <button class="file-submit">SUBMIT</button>
+        <br>
+        <input id = "name">
+        Enter name<br>
+        <input id = "city">
+        Enter city<br>
+        <input id = "age">
+        Enter age<br>
+        <input id = "studying">
+        What are you studying<br>
+        <input id = "cName">
+        College name
+      </div>
+      <p id = "putCookie">cookie goes here</p>
+      <button onclick="PostData()"></button>
+      
+
+ 
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/8.2.9/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+
+    <script src="javascripts/postcomments.js"></script>
+    <script src="javascripts/PostData.js"></script>
+    
+    
+</body>
+</html>
