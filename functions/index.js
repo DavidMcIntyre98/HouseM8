@@ -45,37 +45,11 @@ exports.createuser = functions.https.onRequest((request, response) => {
 
 
 
-<<<<<<< Updated upstream
-=======
-exports.createprofile = functions.https.onRequest((request, response) => {
-	// 1. Receive comment data in here from user POST request
-	// 2. Connect to our Firestore database
-	cors(request, response,  ()=> {
->>>>>>> Stashed changes
 
 
 		admin.firestore().collection('users').add(request.body).then(()=>{
 			response.send("Saved in the database");
 		});
-<<<<<<< Updated upstream
 	})
 
 });
-=======
-	});
-});
-
-exports.createLprofile = functions.https.onRequest((request, response) => {
-	// 1. Receive comment data in here from user POST request
-	// 2. Connect to our Firestore database
-	cors(request, response,  ()=> {
-
-		const currentTime = admin.firestore.Timestamp.now();
-		request.body.timestamp = currentTime;
-
-		return admin.firestore().collection('Landlordprofile').add(request.body).then((snapshot) => {
-			response.send("Saved in the database");
-		});
-	});
-});
->>>>>>> Stashed changes
