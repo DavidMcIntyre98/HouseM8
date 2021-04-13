@@ -2,28 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Profile</title>
+    <title>Create Landlord Profile</title>
     
 </head>
 <body>
     <h1>Upload user data</h1>
     <div id="filesubmit">
         <input type="file" class="file-select" accept="image/*"/>
-
         <br>
-        <input id = "name">
-        Enter name<br>
-        <input id = "city">
-        Enter city<br>
-        <input id = "age">
-        Enter age<br>
-        <input id = "studying">
-        What are you studying<br>
-        <input id = "cName">
-        College name
+        <input id = "numRoom">
+        Enter number of available rooms<br>
+        <input id = "location">
+        Enter location<br>
+        <input id = "minAge">
+        Min tenant age age<br>
+        <input id = "maxAge">
+        Max tenant age<br>
+        <input id = "price">
+        Monthly rent
       </div>
-      <p id = "putCookie">cookie goes here</p>
-
+      
+      <button onclick="LPostData()">submit</button>
       
 
  
@@ -38,6 +37,7 @@
 
     <script src="javascripts/postcomments.js"></script>
     <script src="javascripts/PostData.js"></script>
+    <script src="javascripts/LPostData.js"></script>
     
     
 </body>
