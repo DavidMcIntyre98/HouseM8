@@ -1,0 +1,11 @@
+  
+{
+    "name":"housem8",
+    "version":"1.0.0",
+    "dependencies":{
+    
+    },
+    "scripts":{
+        "serve":"firebase emulators:start"
+    }
+}

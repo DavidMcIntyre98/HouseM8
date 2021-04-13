@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Landlord Profile</title>
+    
+</head>
+<body>
+    <h1>Upload user data</h1>
+    <div id="filesubmit">
+        <input type="file" class="file-select" accept="image/*"/>
+        <br>
+        <input id = "numRoom">
+        Enter number of available rooms<br>
+        <input id = "location">
+        Enter location<br>
+        <input id = "minAge">
+        Min tenant age age<br>
+        <input id = "maxAge">
+        Max tenant age<br>
+        <input id = "price">
+        Monthly rent
+      </div>
+      
+      <button onclick="LPostData()">submit</button>
+      
+
+ 
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/8.2.9/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+
+    <script src="javascripts/postcomments.js"></script>
+    <script src="javascripts/PostData.js"></script>
+    <script src="javascripts/LPostData.js"></script>
+    
+    
+</body>
+</html>
