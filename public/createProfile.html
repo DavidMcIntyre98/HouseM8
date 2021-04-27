@@ -3,30 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>HouseM8</title>
+  
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.min.css" rel="stylesheet">
     
 </head>
-<body>
-    <h1>Upload user data</h1>
-    <div id="filesubmit">
-        <input type="file" class="file-select" accept="image/*"/>
-
-        <br>
-        <input id = "name">
-        Enter name<br>
-        <input id = "city">
-        Enter city<br>
-        <input id = "age">
-        Enter age<br>
-        <input id = "studying">
-        What are you studying<br>
-        <input id = "cName">
-        College name
-      </div>
-      <p id = "putCookie">cookie goes here</p>
-
-      <button onclick="PostData()">submit</button>
-
-      
+<body style="background-image: url('img/background2.png');">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a href="index.html">
+          <img style="width: 93%;height:93%" alt="HouseM8 Home" src="img/HouseM8.png">
+        </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link"style="color: white; font-size: medium;" href="/register.html">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"style="color: white; font-size: medium;" href="/login.html">Log In</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section style="padding-top: 12%;">
+        <div>
+            <img  style="height:75%;margin-left:7%; position: absolute; border-radius: 15%;" src="img/House4.png">
+        </div>
+        <table style="margin-left:50%; background-color:rgba(255, 254, 254, 1); border-radius: 25px; padding:20px; width: 30%">
+            <div id="filesubmit">
+            <thead>
+              <tr>
+                <th rowspan="8"></th>
+                <th>
+                    <h1 style="text-align: center; font-size: 350%;margin-top: 6%;">Sign up</h1>
+                </th>
+              </tr>
+              <tr>
+                <td >
+                    <input id = "name" value=" Full Name *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:20px;margin-top:25px; margin-left:30%">
+                </td>
+              </tr>
+              <tr>
+                <td >
+                    <input id = "city" value=" City *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:20px; margin-left:30%">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <input id = "age" value=" Age *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:20px; margin-left:30%">
+                </td>
+              </tr>
+              <tr>
+                <td >
+                    <input id = "studying" value=" Course Name *"style="color: rgb(104, 104, 104); border-radius: 12px; margin-bottom:20px; margin-left:30%">
+                </td>
+              </tr>
+              <tr>
+                <td >
+                    <input id = "cName" value=" University/Collage *" style="color: rgb(104, 104, 104); border-radius: 12px;margin-bottom:20px; margin-left:30%">
+                </td>
+              </tr>
+              <tr>
+                <td >
+                    <input type="file" class="file-select"  style=" margin-left:25%;" accept="image/*"/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <p id = "putCookie" style=" margin-left:25%">cookie goes here</p>
+                    <button onclick="PostData()" class="btn btn-primary" style="width: 50%;  margin-left:22%; margin-bottom: 6%;">Submit</button>
+                </td>
+              </tr>
+            </thead>
+            </div>
+        
+            </table>        
+    </section>
+    <p style="padding-bottom: 10%;"></p>
+      <section  style="background-color:rgb(250,82,29); height:30%;">
+        <div class="container">
+          
+          <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+              <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;width:25%;height:25%}
+                .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                  overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top;width:25%;height:25%}
+                </style>
+                
+              <div class="p-5" style="text-align: center;">
+               <a href="/register.html" class="btn btn-primary btn-xl rounded-pill mt-6">Sign Up</a>
+              </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+              <div class="p-5">
+                <h2 class="display-4" style="text-align: center">Find your dream HouseM8's!</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+      <!-- Footer -->
+      <footer class="py-5 bg-black">
+        <div class="container">
+          <p class="m-0 text-center text-white small">Copyright &copy; AltF4 LTD</p>
+        </div>
+        <!-- /.container -->
+      </footer>
 
  
   <!-- The core Firebase JS SDK is always required and must be listed first -->

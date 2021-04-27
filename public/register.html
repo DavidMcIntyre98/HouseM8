@@ -6,22 +6,124 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
     crossorigin="anonymous">
     <title>Register an account</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email Address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describeby="emailHelp"
-            placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else</small>
+<body style="background-image: url('img/background3.png');">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a href="index.html">
+          <img style="width: 93%;height:93%" alt="HouseM8 Home" src="img/HouseM8.png">
+        </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link"style="color: white; font-size: medium;" href="/register.html">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"style="color: white; font-size: medium;" href="/login.html">Log In</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <button onclick="register()" class="btn btn-primary">Create Account</button>
-    </div>
+      </nav>
+      <style>
+        .outer {
+            position:absolute; 
+            margin-top:3.5%;
+            width: 35%; 
+            height:53%;  
+            left:10%; 
+            opacity: 20%;
+            background-color: white;
+            border-radius: 6%;
+            border-style: none;
+            border-radius: 6%;
+        }
+        .outer2{
+            position:absolute; 
+            margin-top:3.5%;
+            width: 35%; 
+            height:53%;  
+            left:10%; 
+            opacity: 20%;
+            background-color: white;
+            border-radius: 6%;
+            border-style: none;
+            border-radius: 6%;
+        }
+       
+        </style>
+      <section style="padding-top:9%">
+        <div class="outer">
 
+        </div>
+       
+            <table style="margin-top:4.2%; position:absolute; width:33%;height:45%; left:11%" >
+                <tr>
+                    <td colspan="2">
+                        <div style="padding-left:28%;">
+                            <h4 class="display-4">Register</h4>
+                          </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2">
+                        <label for="exampleInputEmail1">Email Address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describeby="emailHelp"
+                        placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else</small>
+                    
+                </td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2">
+                        
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        
+                    </td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2" >
+                        <button onclick="register()" class="btn btn-primary" style="margin-top: 4%; margin-left:15%;width: 68%;" >Create Account</button>
+    
+                    </td>
+                  </tr>
+              
+              </table>
+              <div>
+                <img  style="height: 65%;margin-left:55%; position: absolute; border-radius: 15%; opacity: 80%;" src="img/placeholder.png">
+            </div>
+   
+</section>
+<style>
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height:8%;
+      background-color: black;
+      color: white;
+      padding-top:1%;
+      text-align: center;
+    }
+    </style>
+    <div class="footer">
+        <p>Copyright ALTF4 LTD</p>
+    </div>
 
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
       
