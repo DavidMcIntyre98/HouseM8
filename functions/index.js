@@ -233,3 +233,80 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 	});
 });
 });
+
+exports.gettenants = functions.https.onRequest((request, response) => {
+	console.log('here');
+	cors(request, response, () => {
+		var recieved = request.body;
+		let myData = [];
+		var price;
+		var city;
+		let Lseenarray =[];
+		return admin.firestore().collection('Landlordprofile').where("uid","==",recieved).get().then((snapshot) => {
+
+			if (snapshot.empty) {
+				console.log('No matching documents111');
+				response.send('No data in database');
+				return;
+			}
+
+			snapshot.forEach((doc) => {
+				price = parseInt(doc.data()["price"]);
+				city = doc.data()["city"];
+
+
+
+		return admin.firestore().collection('Lseen').where("lid","==",recieved).get().then((snapshot) => {		
+
+			if (snapshot.empty) {
+				console.log('No matching documents111');
+				response.send('No data in database');
+				return;
+			}
+			snapshot.forEach((doc) => {
+				uid = (doc.data()["uid"]);
+				Lseenarray.push(uid);
+			
+
+			});
+		
+			console.log('now here');
+				return admin.firestore().collection('userprofile').where("price","==",price).where("city","==",city).get().then((snapshot) => {
+							//.where("lid","not-in",Useenarray)
+					if (snapshot.empty) {
+						console.log('No matching documents222');
+						response.send(myData);
+						return;
+					}
+					snapshot.forEach((doc) => {
+						if (!Lseenarray.includes(doc.data()["uid"]))
+						{
+							console.log("adding"+doc.data()["uid"]);
+							let docObj = {};
+							docObj.id = doc.id;
+							myData.push(Object.assign(docObj, doc.data()));
+							
+
+						}
+						else
+						console.log("has seen"+doc.data()["uid"]);
+						
+						
+					});
+
+					console.log(doc.data()["price"]);
+					
+
+					response.send(myData);
+
+				});
+
+
+			
+
+			});
+
+		});
+	});
+});
+});
