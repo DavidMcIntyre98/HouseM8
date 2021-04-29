@@ -1,11 +1,11 @@
-
 {
-    "name":"housem8",
-    "version":"1.0.0",
-    "dependencies":{
-    
+    "name": "housem8",
+    "version": "1.0.0",
+    "dependencies": {
+        "chai": "^4.3.4",
+        "chai-http": "^4.3.0"
     },
-    "scripts":{
-        "serve":"firebase emulators:start"
+    "scripts": {
+        "serve": "firebase emulators:start"
     }
 }

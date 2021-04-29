@@ -106,6 +106,8 @@ exports.getcomments = functions.https.onRequest((request, response) => {
         })
     });
 });
+
+
 exports.updatecomment = functions.https.onRequest((request, response) => {
     cors(request, response, () => {
         // function body here - use the provided req and res from cors
@@ -209,4 +211,3 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 		});
 	});
 });
-
