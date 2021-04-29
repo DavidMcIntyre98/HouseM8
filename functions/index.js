@@ -164,6 +164,7 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 		let myData = [];
 		var price;
 		var city;
+		let Useenarray =[];
 		return admin.firestore().collection('userprofile').where("uid","==",recieved).get().then((snapshot) => {
 
 			if (snapshot.empty) {
@@ -175,38 +176,60 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 			snapshot.forEach((doc) => {
 				price = parseInt(doc.data()["price"]);
 				city = doc.data()["city"];
-				console.log("ttttt"+price);
 
 
 
+		return admin.firestore().collection('Useen').where("uid","==",recieved).get().then((snapshot) => {		
 
+			if (snapshot.empty) {
+				console.log('No matching documents111');
+				response.send('No data in database');
+				return;
+			}
+			snapshot.forEach((doc) => {
+				lid = (doc.data()["lid"]);
+				Useenarray.push(lid);
+			
+
+			});
+		
+			console.log('now here');
 				return admin.firestore().collection('Landlordprofile').where("price","==",price).where("city","==",city).get().then((snapshot) => {
-							//.where("city","==",city)
+							//.where("lid","not-in",Useenarray)
 					if (snapshot.empty) {
 						console.log('No matching documents222');
 						response.send(myData);
 						return;
 					}
 					snapshot.forEach((doc) => {
-						let docObj = {};
-						docObj.id = doc.id;
-						myData.push(Object.assign(docObj, doc.data()));
+						if (!Useenarray.includes(doc.data()["uid"]))
+						{
+							console.log("adding"+doc.data()["uid"]);
+							let docObj = {};
+							docObj.id = doc.id;
+							myData.push(Object.assign(docObj, doc.data()));
+							
+
+						}
+						else
+						console.log("has seen"+doc.data()["uid"]);
+						
 						
 					});
 
 					console.log(doc.data()["price"]);
-					//console.log("xxxxxx" +JSON.parse(doc.id));
+					
 
 					response.send(myData);
 
 				});
 
 
-
+			
 
 			});
 
 		});
 	});
 });
-
+});
