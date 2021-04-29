@@ -155,3 +155,58 @@ exports.createLprofile = functions.https.onRequest((request, response) => {
 		});
 	});
 });
+
+
+exports.getrooms = functions.https.onRequest((request, response) => {
+	console.log('here');
+	cors(request, response, () => {
+		var recieved = request.body;
+		let myData = [];
+		var price;
+		var city;
+		return admin.firestore().collection('userprofile').where("uid","==",recieved).get().then((snapshot) => {
+
+			if (snapshot.empty) {
+				console.log('No matching documents111');
+				response.send('No data in database');
+				return;
+			}
+
+			snapshot.forEach((doc) => {
+				price = parseInt(doc.data()["price"]);
+				city = doc.data()["city"];
+				console.log("ttttt"+price);
+
+
+
+
+				return admin.firestore().collection('Landlordprofile').where("price","==",price).where("city","==",city).get().then((snapshot) => {
+							//.where("city","==",city)
+					if (snapshot.empty) {
+						console.log('No matching documents222');
+						response.send(myData);
+						return;
+					}
+					snapshot.forEach((doc) => {
+						let docObj = {};
+						docObj.id = doc.id;
+						myData.push(Object.assign(docObj, doc.data()));
+						
+					});
+
+					console.log(doc.data()["price"]);
+					//console.log("xxxxxx" +JSON.parse(doc.id));
+
+					response.send(myData);
+
+				});
+
+
+
+
+			});
+
+		});
+	});
+});
+
