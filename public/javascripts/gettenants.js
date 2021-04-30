@@ -1,3 +1,4 @@
+//function returns an array of users not on the lseen table
 function gettenants() {
     var xhr = new XMLHttpRequest();
     
@@ -26,8 +27,7 @@ function gettenants() {
                 var data = JSON.parse(xhr.responseText);
 
 
-                document.getElementById("prID").innerHTML ="price"+  data[0].price  ;
-                document.getElementById("cID").innerHTML ="city"+  data[0].city  ;
+                return data
             }
         }
     }

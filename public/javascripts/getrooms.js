@@ -1,3 +1,4 @@
+//function returns an array of landlords which are nor in the Useen table
 function getrooms() {
     var xhr = new XMLHttpRequest();
     
@@ -26,8 +27,7 @@ function getrooms() {
                 var data = JSON.parse(xhr.responseText);
 
 
-                document.getElementById("prID").innerHTML ="price"+  data[0].price  ;
-                document.getElementById("cID").innerHTML ="city"+  data[0].city  ;
+               return data;
             }
         }
     }

@@ -310,3 +310,39 @@ exports.gettenants = functions.https.onRequest((request, response) => {
 	});
 });
 });
+
+exports.like = functions.https.onRequest((request, response) => {
+    // 1. Receive comment data in here from user POST request
+    // 2. Connect to our Firestore database
+    cors(request, response, () => {
+
+        //const currentTime = admin.firestore.Timestamp.now();
+        //request.body.timestamp = currentTime;
+			let lid = request.body.lid;
+			let tid = request.body.tid;
+			console.log("tid"+request.body.tid);
+			return admin.firestore().collection('likes').where("lid","==",lid).where("tid","==",tid).get().then((snapshot) => {
+				if (snapshot.empty) {
+					console.log('adding like');
+					return admin.firestore().collection('likes').add(request.body).then((snapshot) => {
+						console.log("bbb"+request.body);
+						response.send(false);
+				});
+			}
+			else
+			{
+				return admin.firestore().collection('matches').add(request.body).then((snapshot) => {
+					response.send("true");
+				});
+			}
+
+
+
+				
+			
+			
+
+        
+    });
+});
+});
