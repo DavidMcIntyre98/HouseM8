@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head  >
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,18 +21,20 @@
   <link href="css/one-page-wonder.min.css" rel="stylesheet">
 
   <!-- Load client side javascripts -->
+  <script src="javascripts/getrooms.js"></script>
   <script src="javascripts/getcomments.js"></script>
   <script src="javascripts/postcomments.js"></script>
   <script src="javascripts/deletecomment.js"></script>
   <script>
     var slideIndex = 1;
-showDivs(slideIndex);
+//showDivs(slideIndex);
 
-function plusDivs(n) {
+/*function plusDivs(n) {
   showDivs(slideIndex += n);
 }
 
   function showDivs(n) {
+    
   var i;
   var x = document.getElementsByClassName("mySlides");
   if (n > x.length) {slideIndex = 1}
@@ -49,11 +51,11 @@ document.getElementById("name").innerHTML = "yourTextHere";
 document.getElementById("location").innerHTML = "yourTextHere";
 
 document.getElementById("cost").innerHTML = "yourTextHere";
-}
+}onclick="plusDivs(-1)"*/
 </script>
 </head>
 
-<body onload="showDivs(1)" style="background-image: url('img/background3.png'); height: 60%;">
+<body onload="getrooms()" style="background-image: url('img/background3.png'); height: 60%;">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -176,10 +178,10 @@ document.getElementById("cost").innerHTML = "yourTextHere";
 
   </style>
   <div style="float:left; padding-top: 10%; padding-left: 5%;">
-    <button class="button"style="vertical-align:left" onclick="plusDivs(-1)">&#10094;  NO</button>
+    <button class="button"style="vertical-align:left" >&#10094;  NO</button>
    </div>
    <div style="float:right; padding-top: 10%; padding-right:5%">
-     <button class="button"style="vertical-align:right" onclick="plusDivs(+1)">YES  &#10095;</button>
+     <button class="button"style="vertical-align:right" >YES  &#10095;</button>
    </div>
   <div style="padding-left: 37%;">
  <img class="mySlides" id="image" style="width:40%;" src="img/holder.png">
@@ -192,11 +194,11 @@ document.getElementById("cost").innerHTML = "yourTextHere";
 
 </div>
 <div class="container" style="position:absolute; left:35%">  
-  <h1 class="masthead-subheading mb-0">Name:</h1> <h3 class="masthead-subheading mb-0" id="name" style="color:white; "> </h1>
+  <h1 id = "test" class="masthead-subheading mb-0">Name:</h1> <h3 class="masthead-subheading mb-0" id="name" style="color:white; "> </h1>
   <pre></pre> 
-  <h1 class="masthead-subheading mb-0">Location: </h1> <h3 class="masthead-subheading mb-0" id="location" style="color:white; "> </h1>
+  <h1 id = "location"class="masthead-subheading mb-0">Location: </h1> <h3 class="masthead-subheading mb-0" id="location" style="color:white; "> </h1>
   <pre></pre> 
-  <h1 class="masthead-subheading mb-0">Cost: </h1> <h3 class="masthead-subheading mb-0" id="cost" style="color:white; "> </h1>
+  <h1 id = "cost" class="masthead-subheading mb-0">Cost: </h1> <h3 class="masthead-subheading mb-0" id="cost" style="color:white; "> </h1>
   <pre></pre> 
   </div>
 </div>
@@ -233,6 +235,9 @@ document.getElementById("cost").innerHTML = "yourTextHere";
         </div>
       </div>
     </div>
+    <p id = "viewing"></p>
+    <p id = "myHiddenField"></p>
+    <p id = "array"></p>
     
   </section>
   <!-- Footer -->

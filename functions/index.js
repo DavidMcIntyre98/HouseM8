@@ -160,6 +160,7 @@ exports.createLprofile = functions.https.onRequest((request, response) => {
 exports.getrooms = functions.https.onRequest((request, response) => {
 	console.log('here');
 	cors(request, response, () => {
+		console.log("this should be the uid of the user:"+request.body);
 		var recieved = request.body;
 		let myData = [];
 		var price;
@@ -182,9 +183,9 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 		return admin.firestore().collection('Useen').where("uid","==",recieved).get().then((snapshot) => {		
 
 			if (snapshot.empty) {
-				console.log('No matching documents111');
-				response.send('No data in database');
-				return;
+				console.log('No matching documents222');
+				
+				
 			}
 			snapshot.forEach((doc) => {
 				lid = (doc.data()["lid"]);
@@ -192,12 +193,12 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 			
 
 			});
-		
+			
 			console.log('now here');
 				return admin.firestore().collection('Landlordprofile').where("price","==",price).where("city","==",city).get().then((snapshot) => {
 							//.where("lid","not-in",Useenarray)
 					if (snapshot.empty) {
-						console.log('No matching documents222');
+						console.log('No matching documents333');
 						response.send(myData);
 						return;
 					}
@@ -219,7 +220,7 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 
 					console.log(doc.data()["price"]);
 					
-
+					console.log("Sending "+ myData);
 					response.send(myData);
 
 				});
