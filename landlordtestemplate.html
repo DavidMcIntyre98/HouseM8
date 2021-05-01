@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <!--<script src="/__/firebase/8.2.9/firebase-app.js"></script>-->
+   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HouseM8</title>
+
+    <script>
+
+
+
+    </script>
+
+
+
+
+    <style>
+      .messages .message__type {
+        color: #d6d6d6;
+        margin-right: 1ch;
+      }
+
+      .messages p {
+        margin-bottom: 0;
+      }
+
+      .results {
+        display: flex;
+        align-items: baseline;
+        padding: 16px;
+        border: 1px solid #d6d6d6;
+        border-radius: 4px;
+      }
+
+      .results__title {
+        flex: 0;
+        margin-bottom: 0;
+      }
+
+      .results p {
+        flex: 1;
+        margin-bottom: 0;
+      }
+
+      .slider {
+        position: relative;
+        width: 100%;
+        height: 8px;
+        background-color: #eee;
+        border-radius: 16px;
+      }
+
+      .slider__bar {
+        display: flex;
+        align-items: center;
+        background-color: #090;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+      }
+
+      .slider__ball {
+        position: absolute;
+        display: block;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        background-color: #090;
+        transform: scale(1);
+        transition: transform 100ms ease-in-out;
+        cursor: pointer;
+      }
+
+      .slider__ball#min {
+        left: calc(0% - 6px);
+      }
+
+      .slider__ball#max {
+        right: calc(0% - 6px);
+      }
+
+      .slider__ball:hover {
+        transform: scale(1.2);
+      }
+    </style>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.min.css" rel="stylesheet">
+
+    <!-- Load client side javascripts -->
+    <!--<script src="javascripts/index.js"></script>
+    <script src="javascripts/upload-files.js"></script>-->
+   <!--<script>
+     var firebaseConfig = {
+    apiKey: "AIzaSyAwRuhoJ2o8o6Qle68rRwZHEsdcLASKFa8",
+    authDomain: "housem8-8b9bf.firebaseapp.com",
+    projectId: "housem8-8b9bf",
+    storageBucket: "housem8-8b9bf.appspot.com",
+    messagingSenderId: "964101061375",
+    appId: "1:964101061375:web:28fc53d1ca3de800196aca"
+  };
+  // Initialize Firebase
+  //firebase.initializeApp(firebaseConfig);
+
+  if (!firebase.apps.length) {
+   firebase.initializeApp(firebaseConfig);
+}else {
+   firebase.app(firebaseConfig); // if already initialized, use that one
+}
+   </script>-->
+
+
+    <script src="javascripts/getcomments.js"></script>
+
+    <script src="javascripts/postcomments.js"></script>
+    <script src="javascripts/deletecomment.js"></script>
+    <script src="javascripts/MinMaxSlider.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-storage.js"></script>
+   
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a href="index.html">
+          <img style="width: 93%;height:93%" alt="HouseM8 Home" src="img/HouseM8.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" style="color: white; font-size: medium;" href="/register.html">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: white; font-size: medium;" href="/login.html">Log In</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!--******************************** INSERT CODE HERE **********************************-->
+    <br><br><br><br><br>
+    <header class="masthead text-center text-white">
+      <div class="masthead-content">
+        <div class="container">
+          <h1 class="masthead-heading mb-0">Landlord</h1>
+          <h2 class="masthead-subheading mb-0">Please fill out the data below to finalise your profile</h2>
+
+        </div>
+      </div>
+      <div class="bg-circle-1 bg-circle"></div>
+      <div class="bg-circle-2 bg-circle"></div>
+      <div class="bg-circle-3 bg-circle"></div>
+      <div class="bg-circle-4 bg-circle"></div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="form">
+              <label>Name</label>
+              <input type="text" id="name">
+
+              <label>Email</label>
+              <input type="text" id="email">
+
+              <label>Phone</label>
+              <input type="text" id="phone">
+
+              <label>Available Rooms</label>
+              <input type="text" id="rooms">
+
+              <label>Location </label>
+              <input type="text" id="location">
+
+              <div class="l-row">
+                <div class="l-column">
+                  <h3>Age Range</h3>
+
+                  <div id="slider" class="push-bottom">
+                    <select name="slider-min" id="slider-min-control" class="slider-min-control">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+
+                    <select name="slider-max" id="slider-max-control" class="slider-max-control">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+
+                    <div id="slider-target"></div>
+                  </div>
+
+                  <div class="results push-bottom">
+                    <h5 class="results__title push-right">Results</h5>
+                    <p>Min Value: <span id="min-result" class="result"></span></p>
+                    <p>Max Value: <span id="max-result" class="result"></span></p>
+                  </div>
+
+                  <div class="messages">
+
+                  </div>
+                </div>
+              </div>
+
+              <label>Monthly Rent </label>
+              <input type="text" id="rent">
+              <br><br><br>
+              <div>
+                <label>
+                  <h4> Upload Photos </h4>
+                </label>
+                <input type="file" id="ll-image">
+                <div class="invalid-feedback">
+                  Please choose a valid picture
+                </div>
+              </div>
+              <div>
+                <img id="selected-image" width="250" height="150" src="#" />
+              </div>
+              <div>
+                <div class="progress bg-secondary">
+                  <div class="progress-bar bg-success" id="upload-progress" style="width: 0%;">0%</div>
+
+                </div>
+              </div>
+              <div>
+                <button id="save-images" type="button" style="width:150px; height:60px;"
+                  class="btn btn-light bg-light text-dark">Upload Images to Database </button>
+              </div>
+
+
+              <br> <br> <br>
+
+              <div id="result">hello gus </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <br>
+    <section>
+      <div class="center">
+        <button class="btn btn-primary btn-xl rounded-pill mt-5" onclick="LPostData()">Submit</button>
+
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <!---------------------Validation and Uploading of Images------------------------------->
+    <script>
+
+      $("#selected-image").hide();
+
+      function previewImage(image_ll) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#selected-image").attr('src', e.target.result);
+          $("#selected-image").fadeIn();
+        }
+        reader.readAsDataURL(image_ll.files[0]);
+
+
+
+      }
+
+      $("#ll-image").change(function () {
+        previewImage(this);
+      });
+
+      $("#save-images").click(function () {
+        var validImagetypes = ["image/gif", "image/jpeg", "image/png"];
+
+        $("#ll-image").removeClass("is-invalid");
+
+        var pic_ll = $("#ll-image").prop("files")[0];
+        
+
+        if (pic_ll == null) {
+          $("#ll-image").addClass("is-invalid");
+          return;
+        }
+
+        /*if ($.inArray(pic_ll["type"], validImagetypes) > 0) {
+          $("#ll-image").addClass("is-invalid");
+          return;
+        }*/
+        if ($.inArray(pic_ll["type"], validImagetypes) < 0) {
+          $("#ll-image").addClass("is-invalid");
+          return;
+        }
+
+        //*****************************************Upload and Save to Firebase Storage**************************
+       
+        var databaseRef = firebase.database().ref("Images");
+        console.log("try and upload this");
+        databaseRef.once("value").then(function (snapshot) {
+          var name = pic_ll["name"];
+          var dateStr = new Date().getTime();
+          var fileCompleteName = name + "_" + dateStr;
+          console.log("upload image: "+ fileCompleteName);
+          var storageRef = firebase.storage().ref("Landlord Images");
+          var LlStorageRef = storageRef.child(fileCompleteName);
+          console.log(JSON.stringify(pic_ll));
+
+          var uploadTask = LlStorageRef.put(pic_ll);
+
+          uploadTask.on("state_changed",
+
+            function progress(snapshot) {
+              var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              $("#upload-progress").html(Math.round(percentage) + "%");
+              $("#upload-progress").attr("style", "width:" + percentage + "%");
+
+            },
+
+            function error(err) {
+
+
+            },
+
+            function complete() {
+              var user = firebase.auth().currentUser;
+              if(user){
+              firebase.database().ref('Users/' + user.uid).once('value').then(function () {
+                var location = (snapshot.val() && snapshot.val().location);
+              
+
+            });
+          }
+              uploadTask.snapshot.ref.getDownloadURL().then(function (downloadUrl) {
+
+                var time = new Date();
+                var options =
+                {
+                  weekday: "long",
+                  month: "long",
+                  day: "2-digit",
+                  year: "numeric"
+                };
+
+                var imageData =
+                {
+                  "image": downloadUrl,
+                  "name": fileCompleteName,
+                  "uid": user.uid,
+                  "time": time.toLocaleString('en-gb', { hour: 'numeric', minute: 'numeric', hour12: true }),
+                  "date": time.toLocaleDateString('en-gb', options),
+                };
+                var newPostRef = database.push();
+
+                newPostRef.set(imageData, function (err) {
+
+                  if (err) {
+                    $("#result").attr("class", "alert alert-danger");
+                    $("#result").html(err.message);
+
+                  }
+                  else {
+                    $("#result").attr("class", "alert alert-success");
+                    $("#result").html("Image has been uploaded successfully.");
+
+                    window.open("", "_self");
+
+                  }
+                });
+
+              });
+
+            }
+
+          );
+
+
+        }
+        
+     );
+
+
+
+
+        //*****************************************Upload and Save to Firebase Storage**************************
+
+      });
+
+      function resetForm() {
+        $("#ll-image").fadeOut();
+        $("#upload-progress").html("Completed");
+      };
+    </script>
+
+
+    <!---------------------Validation and Uploading of Images Ends Here------------------------------->
+
+
+
+
+    <!--******************************** INSERT CODE ENDS HERE **********************************-->
+
+
+
+
+
+    <section style="background-color:rgb(250,82,29); height:30%; padding-top: 7%;">
+      <div class="container">
+
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <style type="text/css">
+              .tg {
+                border-collapse: collapse;
+                border-spacing: 0;
+                width: 25%;
+                height: 25%
+              }
+
+              .tg td {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+              }
+
+              .tg th {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+              }
+
+              .tg .tg-0pky {
+                border-color: inherit;
+                text-align: center;
+                vertical-align: top;
+                width: 25%;
+                height: 25%
+              }
+            </style>
+
+
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4" style="text-align: center">Find your dream HouseM8's!</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- Footer -->
+    <footer class="py-5 bg-black">
+      <div class="container">
+        <p class="m-0 text-center text-white small">Copyright &copy; AltF4 LTD</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+   
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+
+  </body>
+
+</html>
