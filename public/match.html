@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>HouseM8</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/one-page-wonder.min.css" rel="stylesheet">
+
+  <!-- Load client side javascripts -->
+  <script src="javascripts/getcomments.js"></script>
+  <script src="javascripts/postcomments.js"></script>
+  <script src="javascripts/deletecomment.js"></script>
+  <script>
+    var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+  function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+  var img = document.getElementById("image");
+  img.src="img/holder.png"; //PUT IN THE IMAGES HERE
+  //CHANGE TEXT HERE 
+document.getElementById("name").innerHTML = "yourTextHere";
+
+document.getElementById("location").innerHTML = "yourTextHere";
+
+document.getElementById("cost").innerHTML = "yourTextHere";
+}
+</script>
+</head>
+
+<body onload="showDivs(1)" style="background-image: url('img/background3.png'); height: 60%;">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+        <a href="index.html">
+      <img style="width: 93%;height:93%" alt="HouseM8 Home" src="img/HouseM8.png">
+    </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link"style="color: white; font-size: medium;" href="/register.html">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"style="color: white; font-size: medium;" href="/login.html">Log In</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <section  style="background-color:white; height:30%; padding-top: 9%;">
+
+  <!--******************************** INSERT CODE HERE **********************************-->
+  <style>
+    /* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 30%;
+  text-align: center;
+}
+
+
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+  </style>
+  <div style="float:left; padding-top: 10%; padding-left: 5%;">
+    <button class="button"style="vertical-align:left" onclick="plusDivs(-1)">&#10094;  NO</button>
+   </div>
+   <div style="float:right; padding-top: 10%; padding-right:5%">
+     <button class="button"style="vertical-align:right" onclick="plusDivs(+1)">YES  &#10095;</button>
+   </div>
+  <div style="padding-left: 37%;">
+ <img class="mySlides" id="image" style="width:40%;" src="img/holder.png">
+
+ </div>
+ <div style=" padding-top: 1%">
+
+ </div>
+ <div style="position:absolute; width: 30%; height:45%; left:35%; opacity: 20%; border: black; outline: black; border-style: solid; background-color: white;">
+
+</div>
+<div class="container" style="position:absolute; left:35%">  
+  <h1 class="masthead-subheading mb-0">Name:</h1> <h3 class="masthead-subheading mb-0" id="name" style="color:white; "> </h1>
+  <pre></pre> 
+  <h1 class="masthead-subheading mb-0">Location: </h1> <h3 class="masthead-subheading mb-0" id="location" style="color:white; "> </h1>
+  <pre></pre> 
+  <h1 class="masthead-subheading mb-0">Cost: </h1> <h3 class="masthead-subheading mb-0" id="cost" style="color:white; "> </h1>
+  <pre></pre> 
+  </div>
+</div>
+
+
+ 
+</section>
+<div style="padding-bottom: 22%;"></div>
+
+
+
+  <section  style="background-color:rgb(250,82,29); height:30%; padding-top: 7%;">
+    <div class="container">
+      
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;width:25%;height:25%}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top;width:25%;height:25%}
+            </style>
+            
+          <div class="p-5" style="text-align: center;">
+           <a href="/register.html" class="btn btn-primary btn-xl rounded-pill mt-6">Sign Up</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4" style="text-align: center">Find your dream HouseM8's!</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; AltF4 LTD</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/8.2.9/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+
+</body>
+
+</html>
