@@ -1,7 +1,12 @@
 function Llike() {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/like');
 
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+        xhr.open('POST', 'http://localhost:5001/housem8-8b9bf/us-central1/like');
+    }
+    else {
+        xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/like');
+    }
     xhr.setRequestHeader("Content-type", "application/json");
     // Track the state changes of the request.
     xhr.onreadystatechange = function () {

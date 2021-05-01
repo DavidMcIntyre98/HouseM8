@@ -2,8 +2,12 @@
 function getrooms() {
     var xhr = new XMLHttpRequest();
     
-    xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/getrooms');
-    
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+        xhr.open('POST', 'http://localhost:5001/housem8-8b9bf/us-central1/getrooms');
+    }
+    else {
+        xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/getrooms');
+    }
     
 
    
