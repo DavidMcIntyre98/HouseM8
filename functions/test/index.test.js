@@ -75,3 +75,27 @@ describe('Testing authorizedendpoint', function() {
         expect(result.statusCode).to.equal(403);
     });
 });
+
+describe('Testing get rooms', function() {
+    this.timeout(100000);
+
+    it('Tests that tenants can view landlord rooms currently available', async() => {
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').post('/getrooms')
+        .set('content-type','application/json')
+        .send({uid : '1234'});
+
+        expect(result.statusCode).to.equal(200);
+    });
+});
+
+describe('Testing get tenants', function(){
+    this.timeout(100000);
+
+    it('Tests that landlords can view tenants currently available', async() => {
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').post('/gettenants')
+        .set('content-type','application/json')
+        .send({uid : '1234'});
+
+        expect(result.statusCode).to.equal(200);
+    });
+});
