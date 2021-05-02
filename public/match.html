@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head  >
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,59 +21,39 @@
   <link href="css/one-page-wonder.min.css" rel="stylesheet">
 
   <!-- Load client side javascripts -->
+  <script src="javascripts/display.js"></script>
+  <script src="javascripts/getrooms.js"></script>
   <script src="javascripts/getcomments.js"></script>
   <script src="javascripts/postcomments.js"></script>
   <script src="javascripts/deletecomment.js"></script>
   <script>
-   
-      var k=1;
-    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-    function show(){
-      var i=0;
-      var x = document.getElementsByClassName("mySlides");
-      var img = document.getElementById("image");
-      x[0].style.display="block";
-      img.src="img/holder.png";
-      
- 
-    }
+    var slideIndex = 1;
+//showDivs(slideIndex);
 
-    // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- function yes(){
-
- var textArr=[",David,your gaf,3900",",jay,place,2,",",val,home,66",",john,your gaf,700"];
-  var imagesArr = ["img/holder.png","img/temp1.png","img/temp2.png","img/temp3.png","img/temp4.png"];
-  document.getElementById("image").src=imagesArr[k];
-  k++;
-  //CHANGE TEXT HERE 
-  var detail=textArr[k-2].split(",");
-document.getElementById("name").innerHTML = detail[1];
-
-document.getElementById("location").innerHTML =  detail[2];
-
-document.getElementById("cost").innerHTML =  detail[3];
+/*function plusDivs(n) {
+  showDivs(slideIndex += n);
 }
-
-//&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-function no(){
-  
-  var textArr=[",David,your gaf,3900",",jay,place,2,",",val,home,66",",john,your gaf,700"];
-  var imagesArr = ["img/holder.png","img/temp1.png","img/temp2.png","img/temp3.png","img/temp4.png"];
-  document.getElementById("image").src=imagesArr[k];
-  k++;
+  function showDivs(n) {
+    
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+  var img = document.getElementById("image");
+  img.src="img/holder.png"; //PUT IN THE IMAGES HERE
   //CHANGE TEXT HERE 
-  var detail=textArr[k-2].split(",");
-document.getElementById("name").innerHTML = detail[1];
-
-document.getElementById("location").innerHTML =  detail[2];
-
-document.getElementById("cost").innerHTML =  detail[3];
-}
-
+document.getElementById("name").innerHTML = "yourTextHere";
+document.getElementById("location").innerHTML = "yourTextHere";
+document.getElementById("cost").innerHTML = "yourTextHere";
+}onclick="plusDivs(-1)"*/
 </script>
 </head>
 
-<body onload="show()" style="background-image: url('img/background3.png'); height: 60%;">
+<body onload="getrooms()" style="background-image: url('img/background3.png'); height: 60%;">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -162,7 +142,6 @@ document.getElementById("cost").innerHTML =  detail[3];
   color: #FFFFFF;
   text-align: center;
   font-size: 28px;
-  height:50%;
   padding: 20px;
   width: 200px;
   transition: all 0.5s;
@@ -197,10 +176,10 @@ document.getElementById("cost").innerHTML =  detail[3];
 
   </style>
   <div style="float:left; padding-top: 10%; padding-left: 5%;">
-    <button class="button"style="vertical-align:left" onclick="no()">&#10094;  NO</button>
+    <button onclick = "display()" class="button"style="vertical-align:left" >&#10094;  NO</button>
    </div>
    <div style="float:right; padding-top: 10%; padding-right:5%">
-     <button class="button"style="vertical-align:right" onclick="yes()">YES  &#10095;</button>
+     <button class="button"style="vertical-align:right" >YES  &#10095;</button>
    </div>
   <div style="padding-left: 37%;">
  <img class="mySlides" id="image" style="width:40%;" src="img/holder.png">
@@ -213,11 +192,11 @@ document.getElementById("cost").innerHTML =  detail[3];
 
 </div>
 <div class="container" style="position:absolute; left:35%">  
-  <h1 class="masthead-subheading mb-0">Name:</h1> <h3 class="masthead-subheading mb-0" id="name" style="color:white; "> </h1>
+  <h1 id = "test" class="masthead-subheading mb-0">Name:</h1> <h3 class="masthead-subheading mb-0" id="name" style="color:white; "> </h1>
   <pre></pre> 
-  <h1 class="masthead-subheading mb-0">Location: </h1> <h3 class="masthead-subheading mb-0" id="location" style="color:white; "> </h1>
+  <h1 id = "location"class="masthead-subheading mb-0">Location: </h1> <h3 class="masthead-subheading mb-0" id="location" style="color:white; "> </h1>
   <pre></pre> 
-  <h1 class="masthead-subheading mb-0">Cost: </h1> <h3 class="masthead-subheading mb-0" id="cost" style="color:white; "> </h1>
+  <h1 id = "cost" class="masthead-subheading mb-0">Cost: </h1> <h3 class="masthead-subheading mb-0" id="cost" style="color:white; "> </h1>
   <pre></pre> 
   </div>
 </div>
@@ -254,6 +233,9 @@ document.getElementById("cost").innerHTML =  detail[3];
         </div>
       </div>
     </div>
+    <p id = "viewing"></p>
+    <p id = "myHiddenField"></p>
+    <p id = "array"></p>
     
   </section>
   <!-- Footer -->
