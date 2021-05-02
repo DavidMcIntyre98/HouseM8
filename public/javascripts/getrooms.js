@@ -1,5 +1,6 @@
 //function returns an array of landlords which are nor in the Useen table
 function getrooms() {
+    console.log("in getrooms");
     var xhr = new XMLHttpRequest();
     
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
@@ -16,9 +17,9 @@ function getrooms() {
     
     
     
-    //var text = getCookie('uid');
     
-    var text ="1234";//1234 for test purposes only, to be replaced by^
+    
+    var text =getCookie('uid');
     xhr.send(text);
     
 
@@ -27,11 +28,29 @@ function getrooms() {
         var OK = 200; // status 200 is a successful return.
         if (xhr.readyState === DONE) {
             if (xhr.status === OK) {
+                var roomsString = xhr.responseText;
+                document.getElementById("array").value=roomsString;
+                let i =document.getElementById("myHiddenField").value;
+                if (i == undefined){i=0;}
+                
+                
+                
+                
+                
+                roomsString =document.getElementById("array").value;
+                var roomsArray =JSON.parse(roomsString);
+                document.getElementById("viewing").innerHTML=roomsArray[i].uid;
+                document.getElementById("cost").innerHTML=roomsArray[i].price;
+                document.getElementById("location").innerHTML=roomsArray[i].city;
+                document.getElementById("test").innerHTML=roomsArray[i].name;
+                
 
-                var data = JSON.parse(xhr.responseText);
 
+                i++;
+                document.getElementById("myHiddenField").value = i;
 
-               return data;
+                
+               //return data;
             }
         }
     }

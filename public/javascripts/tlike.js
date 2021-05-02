@@ -1,5 +1,7 @@
 // POST comments
 function tlike() {
+    
+    console.log("hurrrr");
     var xhr = new XMLHttpRequest();
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
         xhr.open('POST', 'http://localhost:5001/housem8-8b9bf/us-central1/like');
@@ -14,6 +16,7 @@ function tlike() {
         var OK = 200; // status 200 is a successful return.
         if (xhr.readyState === DONE) {
             if (xhr.status === OK) {
+                console.log("hey"+ getCookie('uid'));
                 xhr.send(JSON.stringify(
                     {"tid": getCookie('uid'), "lid": 	document.getElementById('viewing').value}
 
@@ -25,7 +28,7 @@ function tlike() {
                 console.log('Error: ' + xhr.status); // An error occurred during the request.
             }
         }
-    };
+    }
   
 
 }
