@@ -23,6 +23,8 @@ function getrooms() {
     xhr.send(text);
     
 
+    
+
     xhr.onreadystatechange = function () {
         var DONE = 4; // readyState 4 means the request is done.
         var OK = 200; // status 200 is a successful return.
@@ -39,11 +41,11 @@ function getrooms() {
                 
                 roomsString =document.getElementById("array").value;
                 var roomsArray =JSON.parse(roomsString);
-                document.getElementById("viewing").innerHTML=roomsArray[i].uid;
+                document.getElementById("viewing").value=roomsArray[i].uid;
                 document.getElementById("cost").innerHTML=roomsArray[i].price;
                 document.getElementById("location").innerHTML=roomsArray[i].city;
                 document.getElementById("test").innerHTML=roomsArray[i].name;
-                
+                console.log()
 
 
                 i++;
@@ -54,4 +56,18 @@ function getrooms() {
             }
         }
     }
+}
+function getCookie(cname) {
+    var name = cname +"=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++){
+        var c = ca[i];
+        while(c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

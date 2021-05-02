@@ -10,7 +10,8 @@ function display()
     
     roomsString =document.getElementById("array").value;
     var roomsArray =JSON.parse(roomsString);
-    document.getElementById("viewing").innerHTML=roomsArray[i].uid;
+    
+    document.getElementById("viewing").value=roomsArray[i].uid;
     document.getElementById("cost").innerHTML=roomsArray[i].price;
     document.getElementById("location").innerHTML=roomsArray[i].city;
     document.getElementById("test").innerHTML=roomsArray[i].name;

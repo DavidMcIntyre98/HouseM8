@@ -317,21 +317,31 @@ exports.like = functions.https.onRequest((request, response) => {
     // 2. Connect to our Firestore database
     cors(request, response, () => {
 
-        //const currentTime = admin.firestore.Timestamp.now();
-        //request.body.timestamp = currentTime;
-			let lid = request.body.lid;
-			let tid = request.body.tid;
-			console.log("tid"+request.body.tid);
+        
+			console.log("full"+request.body);
+			var recieved = request.body;
+			var tid = request.body.tid;
+			var lid = request.body.lid;
+			console.log("tid1:"+tid);
+			console.log("lid1:"+lid);
+			//var hello = JSON.parse(request.body);
+			//tid =console.log("hiii"+hello.tid);
+			//lid =console.log("hiii"+hello.lid);
+			//tid ="HEY";
+			//lid ="BYE";
+			
 			return admin.firestore().collection('likes').where("lid","==",lid).where("tid","==",tid).get().then((snapshot) => {
+				console.log("what is problem");
 				if (snapshot.empty) {
 					console.log('adding like');
-					return admin.firestore().collection('likes').add(request.body).then((snapshot) => {
+					return admin.firestore().collection('likes').add(recieved).then((snapshot) => {
 						console.log("bbb"+request.body);
 						response.send(false);
 				});
 			}
 			else
 			{
+				console.log("now here")
 				return admin.firestore().collection('matches').add(request.body).then((snapshot) => {
 					response.send("true");
 				});
