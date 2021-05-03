@@ -7,7 +7,9 @@ function register() {
     // Signed in 
     var user = userCredential.user;
     console.log(user);
-    window.location.href= "/secure.html"
+    document.cookie = "accessToken="+user.za;
+    document.cookie = "uid=" + user.uid;
+    window.location.href= "/chooseuser.html"
     // ...
   })
   .catch((error) => {

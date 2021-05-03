@@ -18,6 +18,8 @@ function getSecureAPI(){
             } else {
                 response.innerHTML = "Unauthorized to view this content";
                 console.log('Error: '+xhr.status); // An error occured during the request
+                alert("Unauthorized to view this page. Please sign up for an account.");
+                window.location.href = "/index.html";
             }
         }
     };
