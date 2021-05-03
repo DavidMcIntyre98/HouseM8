@@ -180,7 +180,7 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 
 
 
-		return admin.firestore().collection('Useen').where("uid","==",recieved).get().then((snapshot) => {		
+		return admin.firestore().collection('Useen').where("tid","==",recieved).get().then((snapshot) => {		
 
 			if (snapshot.empty) {
 				console.log('No matching documents222');
@@ -356,4 +356,16 @@ exports.like = functions.https.onRequest((request, response) => {
         
     });
 });
+});
+
+exports.useen = functions.https.onRequest((request, response) => {
+    //stores the uid of already viewed profiles
+    cors(request, response, () => {
+
+        
+
+        return admin.firestore().collection('Useen').add(request.body).then((snapshot) => {
+            response.send("Saved in the database");
+        });
+    });
 });
