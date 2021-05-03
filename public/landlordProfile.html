@@ -22,8 +22,14 @@
         Monthly rent
       </div>
       
-      <button onclick="LPostData()">submit</button>
+      <button id="submit" onclick="LPostData()">submit</button>
       
+
+    <script type="text/javascript">
+    document.getElementById("submit").onclick = function () {
+        location.href = "https://housem8-8b9bf.web.app/match.html";
+    };
+    </script>
 
  
   <!-- The core Firebase JS SDK is always required and must be listed first -->

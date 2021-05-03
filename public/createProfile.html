@@ -88,7 +88,12 @@
               <tr>
                 <td>
                     <p id = "putCookie" style=" margin-left:25%">cookie goes here</p>
-                    <button onclick="PostData()" class="btn btn-primary" style="width: 50%;  margin-left:22%; margin-bottom: 6%;">Submit</button>
+                    <button id="submit" onclick="PostData()" class="btn btn-primary" style="width: 50%;  margin-left:22%; margin-bottom: 6%;">Submit</button>
+                    <script type="text/javascript">
+                      document.getElementById("submit").onclick = function () {
+                          location.href = "https://housem8-8b9bf.web.app/match.html";
+                      };
+                    </script>
                 </td>
               </tr>
             </thead>
