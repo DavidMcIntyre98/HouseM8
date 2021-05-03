@@ -17,7 +17,7 @@ function getSecureAPI(){
                 //response.innerHTML = xhr.responseText;
                 console.log("Successfully authenticated")
             } else {
-                response.innerHTML = "Unauthorized to view this content";
+                //response.innerHTML = "Unauthorized to view this content";
                 console.log('Error: '+xhr.status); // An error occured during the request
                 alert("Unauthorized to view this page. Please sign up or log in to view this content.");
                 window.location.href = "/index.html";
@@ -51,6 +51,7 @@ function logout() {
         console.log("Sign out successful");
         // Reset cookie
         document.cookie = "accessToken= ";
+        document.cookie = "uid= ";
         // Redirect to the home page
         window.location.href = "/index.html"
         // Sign-out successful.

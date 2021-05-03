@@ -25,20 +25,6 @@
   <script src="javascripts/getrooms.js"></script>
   <script src="javascripts/tlike.js"></script>
 
-  <!-- account verification -->
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="/__/firebase/8.3.0/firebase-app.js"></script>
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
-  <!-- Add Firebase products that you want to use -->
-  <script src="/__/firebase/8.3.0/firebase-auth.js"></script>
-  <script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
-  <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
-  <script src="javascripts/login.js"></script>
-  <script src="javascripts/accessSecureAPI.js"></script>
-  <script>getSecureAPI()</script>
 
   <script>
    
@@ -219,7 +205,7 @@ document.getElementById("cost").innerHTML =  detail[3];
    <div style="float:right; padding-top: 5%; padding-right:5%">
      <button class="button"style="vertical-align:right; height:220px" onclick="tlike()">YES  &#10095;</button>
    </div>
-   <button>hi</button>
+   <button onclick="logout()">Logout</button>
   <div style="padding-left: 37%;">
  <img class="mySlides" id="image" style="width:40%;" src="img/holder.png">
 
@@ -298,6 +284,21 @@ document.getElementById("cost").innerHTML =  detail[3];
 
   <!-- Initialize Firebase -->
   <script src="/__/firebase/init.js"></script>
+
+  <!-- account verification -->
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="/__/firebase/8.3.0/firebase-app.js"></script>
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="/__/firebase/8.3.0/firebase-auth.js"></script>
+  <script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+  <script src="javascripts/login.js"></script>
+  <script src="javascripts/accessSecureAPI.js"></script>
+  <script>getSecureAPI()</script>
 
 </body>
 
