@@ -14,11 +14,12 @@ function getSecureAPI(){
         var OK = 200; // status 200 = successful return
         if(xhr.readyState === DONE) {
             if(xhr.status === OK) {
-                response.innerHTML = xhr.responseText;
+                //response.innerHTML = xhr.responseText;
+                console.log("Successfully authenticated")
             } else {
                 response.innerHTML = "Unauthorized to view this content";
                 console.log('Error: '+xhr.status); // An error occured during the request
-                alert("Unauthorized to view this page. Please sign up for an account.");
+                alert("Unauthorized to view this page. Please sign up or log in to view this content.");
                 window.location.href = "/index.html";
             }
         }
