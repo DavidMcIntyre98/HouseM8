@@ -64,30 +64,40 @@ function getrooms() {
                 
                 roomsString =document.getElementById("array").value;
                 var roomsArray =JSON.parse(roomsString);
-                document.getElementById("viewing").value=roomsArray[i].uid;
+                if (roomsArray[i]== undefined)
+                {
+                    document.getElementById("viewing").value="end of Array";
+                    document.getElementById("cost").innerHTML=" ";
+                    document.getElementById("location").innerHTML=" ";
+                    document.getElementById("test").innerHTML ="no profiles matching";
+            
+                }
 
-                // populate fields for tenant
-                if (uType=='tenant')
-                    {console.log("hello")
-                    
-                    document.getElementById("cost").innerHTML=roomsArray[i].price;
-                    document.getElementById("location").innerHTML=roomsArray[i].city;
-                    document.getElementById("test").innerHTML=roomsArray[i].name;
-                    }
-                //populate fields for landlord    
-                else  
-                    {
-                    
-                    document.getElementById("cost").innerHTML=roomsArray[i].price;
-                    document.getElementById("location").innerHTML=roomsArray[i].city;
-                    document.getElementById("test").innerHTML=roomsArray[i].name;
+                else{
+                    document.getElementById("viewing").value=roomsArray[i].uid;
 
-                    }
-                //increment i to next set of data
-                i++;
-                document.getElementById("myHiddenField").value = i;
+                    // populate fields for tenant
+                    if (uType=='tenant')
+                        {console.log("hello")
+                        
+                        document.getElementById("cost").innerHTML=roomsArray[i].price;
+                        document.getElementById("location").innerHTML=roomsArray[i].city;
+                        document.getElementById("test").innerHTML=roomsArray[i].name;
+                        }
+                    //populate fields for landlord    
+                    else  
+                        {
+                        
+                        document.getElementById("cost").innerHTML=roomsArray[i].price;
+                        document.getElementById("location").innerHTML=roomsArray[i].city;
+                        document.getElementById("test").innerHTML=roomsArray[i].name;
 
+                        }
+                    //increment i to next set of data
+                    i++;
+                    document.getElementById("myHiddenField").value = i;
                 
+                }
                //return data;
             }
         }
