@@ -3,8 +3,8 @@ function getrooms() {
     console.log("in getrooms");
     var xhr = new XMLHttpRequest();
     //get type of user 
-     
-     
+     userType();
+    
    
     
     uType =document.getElementById("Utype").value;
@@ -70,6 +70,7 @@ function getrooms() {
                     document.getElementById("cost").innerHTML=" ";
                     document.getElementById("location").innerHTML=" ";
                     document.getElementById("test").innerHTML ="no profiles matching";
+                    
             
                 }
 
@@ -140,8 +141,8 @@ function userType()
                 var uType = xhr.responseText;
                // console.log ("hi" +uType.value);
                 console.log("herrr"+uType);
-                if (uType =="tenant"){document.getElementById("Utype").value=uType;}
-                else{document.getElementById("Utype").value="dumb";}
+                if (uType =="tenant"){document.getElementById("Utype").value="tenant";}
+                else{document.getElementById("Utype").value="landlord";}
                 //document.getElementById("userType").value=xhr.responseText;
                 getrooms();
                 
