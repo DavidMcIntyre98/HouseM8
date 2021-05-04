@@ -49,7 +49,7 @@
     
 </head>
 <body style="background-image: url('img/background2.png');">
-  <script>getSecureAPI()</script>
+  <!--<script>getSecureAPI()</script>-->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
             <a href="index.html">
@@ -78,9 +78,9 @@
             <div id="filesubmit">
             <thead>
               <tr>
-                <th rowspan="8"></th>
+                
                 <th>
-                    <h1 style="text-align: center; font-size: 350%;margin-top: 6%;">Sign up</h1>
+                    <h1 style="margin-left: 30%; font-size: 350%;margin-top: 6%;">Sign up</h1>
                 </th>
               </tr>
               <tr>
@@ -112,14 +112,20 @@
                     <input id = "price" value=" Max Rent *" style="color: rgb(104, 104, 104); border-radius: 12px;margin-bottom:20px; margin-left:30%">
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <input type="text" placeholder="@A little bit about yourself" id="description" style="width:300px;height:100px;border-radius: 4px;box-sizing: border-box; margin-left:30%">
+
+                </td>
+              </tr>
               </tr>
               <tr>
                 <td >
                   <div>
-                    <label>
+                    <label style="padding-left: 32%;">
                       <h4> Upload Photos </h4>
                     </label>
-                    <input type="file" id="t-image">
+                    <input style="padding-left: 28%; padding-bottom: 3%;" type="file" id="t-image">
                     <div class="invalid-feedback">
                       Please choose a valid picture
                     </div>
@@ -133,17 +139,18 @@
     
                     </div>
                   </div>
-                  <div>
+                  <div style="padding-top:4%; padding-left: 33%;">
                     <button id="save-images" type="button" style="width:150px; height:60px;"
-                  class="btn btn-light bg-light text-dark">Upload Images to Database </button>
+                  class="btn btn-secondary">Upload Images to Database </button>
                   </div>
 
                 </td>
               </tr>
               <tr>
                 <td>
-                    <p id = "putCookie" style=" margin-left:25%">cookie goes here</p>
-                    <button onclick="PostData()" class="btn btn-primary" style="width: 50%;  margin-left:22%; margin-bottom: 6%;">Submit</button>
+                  <p id = "putCookie" style=" margin-left:37%">cookie goes here</p>
+                  <button onclick="PostData()" class="btn btn-primary" style="width: 50%;  margin-left:25%; margin-bottom: 9%;">Update</button>
+      
                 </td>
               </tr>
             </thead>
@@ -307,23 +314,17 @@
                 });
 
                 /*newImageRef.set(imageData, function (err) {
-
                   if (err) {
                     $("#result").attr("class", "alert alert-danger");
                     $("#result").html(err.message);
-
                   }
                   else {
                     $("#result").attr("class", "alert alert-success");
                     $("#result").html("Image has been uploaded successfully.");
-
                     window.open("", "_self");
-
                   }
                 }); 
-
                 var firestoreRef = firebase.collection("Images");
-
                 firestoreRef.collection("imageData").doc().set(imageData).then(() => {
                   console.log("Doc successfully uploaded");
                 });*/
