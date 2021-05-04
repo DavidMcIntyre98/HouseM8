@@ -22,7 +22,7 @@ function LPostData()
     };
 
     xhr.send(JSON.stringify(
-        {"uid" : getCookie('uid'), "Name": document.getElementById('name').value,"Phone": document.getElementById('phone').value,"numRoom": document.getElementById("numRoom").value, "location" : document.getElementById("location").value, "Picture URL": document.getElementById('myLink').value, "description": document.getElementById('description').value, "price": document.getElementById("price").value  }
+        {"uid" : getCookie('uid'), "Name": document.getElementById('name').value,"Phone": document.getElementById('phone').value,"numRoom": document.getElementById("numRoom").value, "location" : document.getElementById("location").value, "PictureURL": document.getElementById('myLink').value, "description": document.getElementById('description').value, "price": document.getElementById("price").value  }
     ));
     
     
