@@ -8,7 +8,7 @@ function display()
         console.log("howya");
         
         if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-            xhr.open('POST', 'http://localhost:5001/housem8-8b9bf/us-central1/unseen');
+            xhr.open('POST', 'http://localhost:5001/housem8-8b9bf/us-central1/useen');
         }
         else {
             xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/useen');
