@@ -1,6 +1,7 @@
 // POST comments
 function tlike() {
     
+    var Utype = document.getElementById("Utype").value;
     console.log("hurrrr");
     var xhr = new XMLHttpRequest();
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
@@ -14,11 +15,17 @@ function tlike() {
     xhr.setRequestHeader("Content-type", "application/json")
 
     console.log("hurrrr3");
-    xhr.send(JSON.stringify(
-        {"tid": getCookie('uid'), "lid": 	document.getElementById('viewing').value}
+    
+    if(Utype=='tenant'){
+        xhr.send(JSON.stringify(
+            {"tid": getCookie('uid'), "lid": 	document.getElementById('viewing').value}));
+    }
+    else
+    {
+        xhr.send(JSON.stringify(
+            {"lid": getCookie('uid'), "tid": 	document.getElementById('viewing').value}));
+    }
 
-        
-    ));
     display();
     /*xhr.setRequestHeader("Content-type", "application/json");
     // Track the state changes of the request.
@@ -119,6 +126,7 @@ function tlike() {
     document.getElementById("myHiddenField").value = i;
     
 }
+
    
   
 

@@ -22,9 +22,24 @@ function LPostData()
     };
 
     xhr.send(JSON.stringify(
-        {"uid" : getCookie('uid'),"numRoom": document.getElementById("numRoom").value, "location" : document.getElementById("location").value,"minAge" : document.getElementById("minAge").value,"maxAge" : document.getElementById("maxAge").value,"price" : document.getElementById("price").value }
+        {"uid" : getCookie('uid'),"numRoom": document.getElementById("numRoom").value, "location" : document.getElementById("location").value,"minAge" : document.getElementById("minAge").value,"maxAge" : document.getElementById("maxAge").value,"price" : parseInt(document.getElementById("price").value), "userType" :'l' }
     ));
     
     
     
+}
+
+function getCookie(cname) {
+    var name = cname +"=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++){
+        var c = ca[i];
+        while(c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
