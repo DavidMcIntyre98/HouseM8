@@ -149,13 +149,13 @@ function tlike() {
     if (roomsArray[i]== undefined)
     {
         document.getElementById("viewing").value="end of Array";
-        document.getElementById("cost").innerHTML=" ";
+        document.getElementById("price").innerHTML=" ";
         document.getElementById("location").innerHTML=" ";
         document.getElementById("test").innerHTML ="You have viewed all profiles within your criteria";
 
     }
     document.getElementById("viewing").value=roomsArray[i].uid;
-    document.getElementById("cost").innerHTML=roomsArray[i].price;
+    document.getElementById("price").innerHTML=roomsArray[i].price;
     document.getElementById("location").innerHTML=roomsArray[i].city;
     document.getElementById("test").innerHTML=roomsArray[i].name;
     
