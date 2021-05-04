@@ -7,7 +7,12 @@ function display()
         var xhr = new XMLHttpRequest();
         console.log("howya");
         
-        xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/useen');
+        if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+            xhr.open('POST', 'http://localhost:5001/housem8-8b9bf/us-central1/unseen');
+        }
+        else {
+            xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/useen');
+        }
         xhr.setRequestHeader("Content-type", "application/json");
         // Track the state changes of the request.
         console.log("trying useen");
