@@ -14,7 +14,7 @@ function PostData()
         var OK = 200; // status 200 is a successful return.
         if (xhr.readyState === DONE) {
             if (xhr.status === OK) {
-                window.location.href= "/match.html"  
+                window.location.href= "/match.html";  
             } else {
                 console.log('Error: ' + xhr.status); // An error occurred during the request.
             }
