@@ -154,6 +154,7 @@ function tlike() {
         document.getElementById("test").innerHTML ="You have viewed all profiles within your criteria";
 
     }
+    else{
     document.getElementById("viewing").value=roomsArray[i].uid;
     document.getElementById("price").innerHTML=roomsArray[i].price;
     document.getElementById("location").innerHTML=roomsArray[i].city;
@@ -163,7 +164,7 @@ function tlike() {
 
     i++;
     document.getElementById("myHiddenField").value = i;
-    
+    }
 }
 
    
