@@ -79,7 +79,8 @@ function tlike() {
     console.log("pow");
     //add the profile to the seen collection
 
-    
+    if(document.getElementById("Utype").value=="tenant")
+    {    
         var xhr = new XMLHttpRequest();
         console.log("howya");
         xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/useen');
@@ -104,6 +105,37 @@ function tlike() {
         xhr.send(JSON.stringify(
             {"tid": getCookie('uid'), "lid": 	document.getElementById('viewing').value}
         ));
+
+        }
+        else{
+        var xhr = new XMLHttpRequest();
+        console.log("howya");
+        xhr.open('POST', 'https://us-central1-housem8-8b9bf.cloudfunctions.net/lseen');
+        
+    
+        xhr.setRequestHeader("Content-type", "application/json");
+        // Track the state changes of the request.
+        console.log("trying useen");
+        xhr.onreadystatechange = function () {
+            console.log("trying useen2");
+            var DONE = 4; // readyState 4 means the request is done.
+            var OK = 200; // status 200 is a successful return.
+            if (xhr.readyState === DONE) {
+                if (xhr.status === OK) {
+                    console.log("All good"); 
+                } else {
+                    console.log('Error: ' + xhr.status); // An error occurred during the request.
+                }
+            }
+        };
+    
+        xhr.send(JSON.stringify(
+            {"tid": getCookie('uid'), "lid": 	document.getElementById('viewing').value}
+        ));    
+        }
+
+
+
     
     let i =document.getElementById("myHiddenField").value;
     if (i == undefined){i=0;}
@@ -114,7 +146,14 @@ function tlike() {
     
     roomsString =document.getElementById("array").value;
     var roomsArray =JSON.parse(roomsString);
-    
+    if (roomsArray[i]== undefined)
+    {
+        document.getElementById("viewing").value="end of Array";
+        document.getElementById("cost").innerHTML=" ";
+        document.getElementById("location").innerHTML=" ";
+        document.getElementById("test").innerHTML ="You have viewed all profiles within your criteria";
+
+    }
     document.getElementById("viewing").value=roomsArray[i].uid;
     document.getElementById("cost").innerHTML=roomsArray[i].price;
     document.getElementById("location").innerHTML=roomsArray[i].city;

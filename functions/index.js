@@ -274,7 +274,7 @@ exports.getrooms = functions.https.onRequest((request, response) => {
 });
 });
 
-exports.gettenants = functions.https.onRequest((request, response) => {
+/*exports.gettenants = functions.https.onRequest((request, response) => {
 	console.log('here');
 	cors(request, response, () => {
 		var recieved = request.body;
@@ -351,7 +351,7 @@ exports.gettenants = functions.https.onRequest((request, response) => {
 		});
 	});
 });
-});
+});*/
 
 exports.like = functions.https.onRequest((request, response) => {
     // 1. Receive comment data in here from user POST request
@@ -411,26 +411,25 @@ exports.useen = functions.https.onRequest((request, response) => {
     });
 });
 
-exports.checktype = functions.https.onRequest((request, response) => {
+exports.lseen = functions.https.onRequest((request, response) => {
     //stores the uid of already viewed profiles
     cors(request, response, () => {
 
         
-		
-		
-		//var recieved = "ULHWRvGDZ6MWy6mtgnQhJSsC9a42";
-		
+
+        return admin.firestore().collection('Lseen').add(request.body).then((snapshot) => {
+            response.send("Saved in the database");
+        });
+    });
+});
+
+exports.checktype = functions.https.onRequest((request, response) => {
+    //stores the uid of already viewed profiles
+    cors(request, response, () => {
+
 		var recieved = request.body;
-		
-		
-		//var recieved ="ULHWRvGDZ6MWy6mtgnQhJSsC9a42";
-		//notrecieved =notrecieved.replace(/['"]+/g, '');
 		console.log(recieved);
-		//var thisworks="s8I6T9W611dW6YQL0PHt67VjCiu1";
 		
-		//console.log(notrecieved);
-		
-		//console.log("nom"+nom);
 		
         return admin.firestore().collection('userprofile').where("uid","==",recieved).get().then((snapshot) => {
 
@@ -462,4 +461,81 @@ exports.image_data = functions.https.onRequest((request, response) => {
     });
 });
 
-	
+
+
+exports.gettenants = functions.https.onRequest((request, response) => {
+	console.log('here');
+	cors(request, response, () => {
+		console.log("this should be the uid of the user:"+request.body);
+		var recieved = request.body;
+		let myData = [];
+		var price;
+		var city;
+		let Useenarray =[];
+		return admin.firestore().collection('Landlordprofile').where("uid","==",recieved).get().then((snapshot) => {
+
+			if (snapshot.empty) {
+				console.log('No matching documents111');
+				response.send('No data in database');
+				return;
+			}
+
+			snapshot.forEach((doc) => {
+				price = parseInt(doc.data()["price"]);
+				city = doc.data()["city"];
+			
+		
+				console.log('now here2');
+		return admin.firestore().collection('Useen').where("tid","==",recieved).get().then((snapshot) => {		
+
+			if (snapshot.empty) {
+				console.log('No matching documents222');
+				
+				
+			}
+			snapshot.forEach((doc) => {
+				lid = (doc.data()["lid"]);
+				Useenarray.push(lid);
+			
+
+			});
+			
+			console.log('now here');
+			
+				return admin.firestore().collection('userprofile').where("price",">=",price).get().then((snapshot) => {
+							//.where("lid","not-in",Useenarray)
+					if (snapshot.empty) {
+						console.log('No matching documents333');
+						response.send(myData);
+						return;
+					}
+					snapshot.forEach((doc) => {
+						console.log("city"+city);
+						if (doc.data()["city"]==city)
+						{
+						console.log("city match")
+						
+							if (!Useenarray.includes(doc.data()["uid"]))
+							{
+								console.log("not seen")
+								console.log("adding"+doc.data()["uid"]);
+							let docObj = {};
+							docObj.id = doc.id;
+							myData.push(Object.assign(docObj, doc.data()));
+
+							}
+
+						}		
+						
+					});
+					console.log("Sending "+ myData);
+					response.send(myData);
+						console.log("123");
+					
+
+		});
+	});
+});
+});
+});
+});
