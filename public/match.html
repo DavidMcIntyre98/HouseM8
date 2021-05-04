@@ -9,7 +9,8 @@
   <meta name="author" content="">
 
   <title>HouseM8</title>
-
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="/__/firebase/8.3.0/firebase-app.js"></script>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,6 +24,20 @@
   <!-- Load client side javascripts -->
   <script src="javascripts/display.js"></script>
   <script src="javascripts/getrooms.js"></script>
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="/__/firebase/8.3.0/firebase-auth.js"></script>
+    <script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script src="javascripts/login.js"></script>
+    <script src="javascripts/accessSecureAPI.js"></script>
+
+    <script>getSecureAPI()</script>
 
   <script>
    
@@ -278,14 +293,9 @@ document.getElementById("cost").innerHTML =  detail[3];
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="/__/firebase/8.2.9/firebase-app.js"></script>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-  https://firebase.google.com/docs/web/setup#available-libraries -->
 
-  <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
+
 
 </body>
 
