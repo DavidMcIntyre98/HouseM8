@@ -14,7 +14,7 @@ function PostData()
         var OK = 200; // status 200 is a successful return.
         if (xhr.readyState === DONE) {
             if (xhr.status === OK) {
-
+                window.location.href= "/match.html"  
             } else {
                 console.log('Error: ' + xhr.status); // An error occurred during the request.
             }
@@ -22,7 +22,7 @@ function PostData()
     };
 
     xhr.send(JSON.stringify(
-        {"uid" : getCookie('uid'), "price":parseInt(document.getElementById("price").value),"name": document.getElementById("name").value, "age" : document.getElementById("age").value,"studying" : document.getElementById("studying").value,"city" : document.getElementById("city").value,"cName" : document.getElementById("cName").value, "userType" :'t' }
+        {"uid" : getCookie('uid'),"name": document.getElementById("name").value, "age" : document.getElementById("age").value,"studying" : document.getElementById("studying").value,"city" : document.getElementById("city").value,"cName" : document.getElementById("cName").value }
     ));
     
     
