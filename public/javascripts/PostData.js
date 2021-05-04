@@ -14,7 +14,7 @@ function PostData()
         var OK = 200; // status 200 is a successful return.
         if (xhr.readyState === DONE) {
             if (xhr.status === OK) {
-
+         
             } else {
                 console.log('Error: ' + xhr.status); // An error occurred during the request.
             }
@@ -22,7 +22,7 @@ function PostData()
     };
 
     xhr.send(JSON.stringify(
-        {"uid" : getCookie('uid'), "price":parseInt(document.getElementById("price").value),"name": document.getElementById("name").value, "age" : document.getElementById("age").value,"studying" : document.getElementById("studying").value,"city" : document.getElementById("city").value,"cName" : document.getElementById("cName").value, "userType" :'t' }
+        {"uid" : getCookie('uid'),"name": document.getElementById("name").value, "age" : document.getElementById("age").value,"studying" : document.getElementById("studying").value,"city" : document.getElementById("city").value,"cName" : document.getElementById("cName").value }
     ));
     
     
@@ -33,18 +33,4 @@ function PostData()
     //document.getElementById("putCookie").innerHTML=UserId;
 
 
-}
-function getCookie(cname) {
-    var name = cname +"=";
-    var ca = document.cookie.split(";");
-    for (var i = 0; i < ca.length; i++){
-        var c = ca[i];
-        while(c.charAt(0)==' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
 }
