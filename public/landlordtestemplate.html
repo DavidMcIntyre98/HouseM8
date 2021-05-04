@@ -178,52 +178,21 @@
               <input type="text" id="numRoom">
 
               <label>Location </label>
-              <input type="text" id="location">
+              <input type="text" id="city">
 
               <label>Monthly Rent </label>
               <input type="text" id="price">
 
-              <div class="l-row">
-                <div class="l-column">
-                  <h3>Age Range</h3>
+              <label>Description </label>
+              <input type="text" placeholder="@A little bit about your house" id="description" style="width:300px;height:100px;border-radius: 4px;box-sizing: border-box; margin-left:30%">
 
-                  <div id="slider" class="push-bottom">
-                    <select name="slider-min" id="slider-min-control" class="slider-min-control">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
-
-                    <select name="slider-max" id="slider-max-control" class="slider-max-control">
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
-
-                    <div id="slider-target"></div>
-                  </div>
-
-                  <div class="results push-bottom">
-                    <h5 class="results__title push-right">Results</h5>
-                    <p>Min Value: <span id="min-result" class="result"></span></p>
-                    <p>Max Value: <span id="max-result" class="result"></span></p>
-                  </div>
-
-                  <div class="messages">
-
-                  </div>
-                </div>
-              </div>
-
-              
-              <br><br><br>
+             <hr>
+           
               <div>
                 <label>
                   <h4> Upload Photos </h4>
                 </label>
-                <input type="file" id="ll-image">
+                <input type="file" id="ll-image" style="padding-left:28%; padding-bottom: 3%;">
                 <div class="invalid-feedback">
                   Please choose a valid picture
                 </div>
@@ -537,18 +506,6 @@
 
     <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
-
-    <script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
-    <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
-    <script src="javascripts/login.js"></script>
-    <script src="javascripts/accessSecureAPI.js"></script>
-
-    <script>getSecureAPI()</script>
 
   </body>
 

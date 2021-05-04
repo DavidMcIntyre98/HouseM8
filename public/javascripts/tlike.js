@@ -150,21 +150,22 @@ function tlike() {
     {
         document.getElementById("viewing").value="end of Array";
         document.getElementById("price").innerHTML=" ";
-        document.getElementById("location").innerHTML=" ";
+        document.getElementById("city").innerHTML=" ";
         document.getElementById("test").innerHTML ="You have viewed all profiles within your criteria";
+        document.getElementById("image").src = "none"
 
     }
-    else{
     document.getElementById("viewing").value=roomsArray[i].uid;
     document.getElementById("price").innerHTML=roomsArray[i].price;
-    document.getElementById("location").innerHTML=roomsArray[i].city;
+    document.getElementById("city").innerHTML=roomsArray[i].city;
     document.getElementById("test").innerHTML=roomsArray[i].name;
+    document.getElementById("image").src = roomsArray[i].PictureURL;
     
 
 
     i++;
     document.getElementById("myHiddenField").value = i;
-    }
+    
 }
 
    

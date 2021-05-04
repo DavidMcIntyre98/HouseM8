@@ -67,10 +67,10 @@ function getrooms() {
                 if (roomsArray[i]== undefined)
                 {
                     document.getElementById("viewing").value="end of Array";
-                    document.getElementById("cost").innerHTML=" ";
+                    document.getElementById("price").innerHTML=" ";
                     document.getElementById("location").innerHTML=" ";
                     document.getElementById("test").innerHTML ="no profiles matching";
-                    
+                    document.getElementById("image").src = "none"
             
                 }
 
@@ -80,18 +80,20 @@ function getrooms() {
                     // populate fields for tenant
                     if (uType=='tenant')
                         {console.log("hello")
-                        document.getElementById("image").scr =roomsArray[i].PictureURL;
-                        document.getElementById("cost").innerHTML=roomsArray[i].price;
-                        document.getElementById("location").innerHTML=roomsArray[i].city;
+                        
+                        document.getElementById("price").innerHTML=roomsArray[i].price;
+                        document.getElementById("city").innerHTML=roomsArray[i].city;
                         document.getElementById("test").innerHTML=roomsArray[i].name;
+                        document.getElementById("image").src = roomsArray[i].PictureURL;
                         }
                     //populate fields for landlord    
                     else  
                         {
                         
-                        document.getElementById("cost").innerHTML=roomsArray[i].price;
-                        document.getElementById("location").innerHTML=roomsArray[i].city;
+                        document.getElementById("price").innerHTML=roomsArray[i].price;
+                        document.getElementById("city").innerHTML=roomsArray[i].city;
                         document.getElementById("test").innerHTML=roomsArray[i].name;
+                        document.getElementById("image").src = roomsArray[i].PictureURL;
 
                         }
                     //increment i to next set of data
