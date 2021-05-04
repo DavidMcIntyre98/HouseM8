@@ -21,10 +21,8 @@
   <link href="css/one-page-wonder.min.css" rel="stylesheet">
 
   <!-- Load client side javascripts -->
-  
+  <script src="javascripts/display.js"></script>
   <script src="javascripts/getrooms.js"></script>
-  <script src="javascripts/tlike.js"></script>
-
 
   <script>
    
@@ -77,7 +75,7 @@ document.getElementById("cost").innerHTML =  detail[3];
 </script>
 </head>
 
-<body onload="show(); userType();" style="background-image: url('img/background3.png'); height: 60%;">
+<body onload="show(); getrooms();" style="background-image: url('img/background3.png'); height: 60%;">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -91,10 +89,13 @@ document.getElementById("cost").innerHTML =  detail[3];
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link"style="color: white; font-size: medium;" href="/register.html">Sign Up</a>
+            <a class="nav-link"style="color: white; font-size: medium;padding-left:0%" href="/register.html">Sign Up</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"style="color: white; font-size: medium;" href="/login.html">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"style="color: white; font-size: medium;padding right:0%" href="/user.html">My Account</a>
           </li>
         </ul>
       </div>
@@ -198,14 +199,15 @@ document.getElementById("cost").innerHTML =  detail[3];
   right: 0;
 }
 
+
+
   </style>
   <div style="float:left; padding-top: 5%; padding-left: 5%;">
-    <button class="button"style="vertical-align:left; height:220px" onclick="display()">&#10094;  NO</button>
+    <button class="button"style="vertical-align:left; height:220px" onclick="no()">&#10094;  NO</button>
    </div>
    <div style="float:right; padding-top: 5%; padding-right:5%">
-     <button class="button"style="vertical-align:right; height:220px" onclick="tlike()">YES  &#10095;</button>
+     <button class="button"style="vertical-align:right; height:220px" onclick="yes()">YES  &#10095;</button>
    </div>
-   <button onclick="logout()">Logout</button>
   <div style="padding-left: 37%;">
  <img class="mySlides" id="image" style="width:40%;" src="img/holder.png">
 
@@ -218,11 +220,11 @@ document.getElementById("cost").innerHTML =  detail[3];
 
 </div>
 <div class="container" style="position:absolute; left:35%">  
-  <h1 id = "test"class="masthead-subheading mb-0">Name:</h1> <h3 class="masthead-subheading mb-0" id="test" style="color:white; "> </h1>
+  <h1 class="masthead-subheading mb-0">Name:</h1> <h3 class="masthead-subheading mb-0" id="test" style="color:white; "> </h1>
   <pre></pre> 
-  <h1 id = "location"class="masthead-subheading mb-0">Location: </h1> <h3 class="masthead-subheading mb-0" id="location" style="color:white; "> </h1>
+  <h1 class="masthead-subheading mb-0">Location: </h1> <h3 class="masthead-subheading mb-0" id="location" style="color:white; "> </h1>
   <pre></pre> 
-  <h1 id = "cost"class="masthead-subheading mb-0">Cost: </h1> <h3 class="masthead-subheading mb-0" id="price" style="color:white; "> </h1>
+  <h1 class="masthead-subheading mb-0">Cost: </h1> <h3 class="masthead-subheading mb-0" id="price" style="color:white; "> </h1>
   <pre></pre> 
   </div>
 </div>
@@ -262,7 +264,6 @@ document.getElementById("cost").innerHTML =  detail[3];
     <p id = "viewing"></p>
     <p id = "myHiddenField"></p>
     <p id = "array"></p>
-    <p id = "Utype"></p>
     
   </section>
   <!-- Footer -->
@@ -285,21 +286,6 @@ document.getElementById("cost").innerHTML =  detail[3];
 
   <!-- Initialize Firebase -->
   <script src="/__/firebase/init.js"></script>
-
-  <!-- account verification -->
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="/__/firebase/8.3.0/firebase-app.js"></script>
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
-  <!-- Add Firebase products that you want to use -->
-  <script src="/__/firebase/8.3.0/firebase-auth.js"></script>
-  <script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
-  <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
-  <script src="javascripts/login.js"></script>
-  <script src="javascripts/accessSecureAPI.js"></script>
-  <script>getSecureAPI()</script>
 
 </body>
 
