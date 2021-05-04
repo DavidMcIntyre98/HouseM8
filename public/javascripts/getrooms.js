@@ -3,7 +3,7 @@ function getrooms() {
     console.log("in getrooms");
     var xhr = new XMLHttpRequest();
     //get type of user 
-     userType();
+     
     
    
     
@@ -80,7 +80,7 @@ function getrooms() {
                     // populate fields for tenant
                     if (uType=='tenant')
                         {console.log("hello")
-                        
+                        document.getElementById("image").scr =roomsArray[i].PictureURL;
                         document.getElementById("cost").innerHTML=roomsArray[i].price;
                         document.getElementById("location").innerHTML=roomsArray[i].city;
                         document.getElementById("test").innerHTML=roomsArray[i].name;
