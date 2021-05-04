@@ -448,4 +448,18 @@ exports.checktype = functions.https.onRequest((request, response) => {
     });
 });
 
+exports.image_data = functions.https.onRequest((request, response) => {
+    // 1. Receive comment data in here from user POST request
+    // 2. Connect to our Firestore database
+    cors(request, response, () => {
+
+        const currentTime = admin.firestore.Timestamp.now();
+        request.body.timestamp = currentTime;
+        
+        return admin.firestore().collection('imageData').add(request.body).then((snapshot) => {
+            response.send("Saved in the database");
+        });
+    });
+});
+
 	
