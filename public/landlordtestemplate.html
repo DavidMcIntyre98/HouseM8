@@ -9,16 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/one-page-wonder.min.css" rel="stylesheet">
 
     <title>HouseM8</title>
 
@@ -101,6 +91,16 @@
       }
     </style>
 
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/one-page-wonder.min.css" rel="stylesheet">
 
     
 
@@ -109,7 +109,6 @@
     <script src="javascripts/LPostData.js"></script>
     <script src="javascripts/postcomments.js"></script>
     <script src="javascripts/deletecomment.js"></script>
-    <script src="javascripts/MinMaxSlider.js"></script>
     <script src="javascripts/image_data.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -120,7 +119,7 @@
 
   </head>
 
-  <body body style="background-image: url('img/background2.png');">
+  <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -147,137 +146,72 @@
 
 
     <!--******************************** INSERT CODE HERE **********************************-->
-    <body style="background-image: url('img/background2.png');">
-      <!--<script>getSecureAPI()</script>-->
-      <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <div class="container">
-          <a href="index.html">
-            <img style="width: 93%;height:93%" alt="HouseM8 Home" src="img/HouseM8.png">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" style="color: white; font-size: medium;" href="/register.html">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="color: white; font-size: medium;" href="/login.html">Log In</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <section  style="padding-top: 11%;">
-
-            <div>
-                <img  style="height:80%;margin-left:7%; position: absolute; border-radius: 15%;" src="img/holder3.png">
-            </div>
-            <table style="margin-left:50%; background-color:rgba(255, 254, 254, 1); border-radius: 25px; padding:20px; width: 30%">
-                <div id="filesubmit">
-                <thead>
-                  <tr>
-                    
-                    <th>
-                        <h1 style="margin-left: 3%; font-size: 350%;margin-top: 6%;">Landlord Sign up</h1>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td >
-                        <input id = "name" value=" Full Name *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:20px;margin-top:25px; margin-left:30%">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td >
-                        <input id = "phone" value=" Phone No. *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:20px; margin-left:30%">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <input id = "numRoom" value=" Available Rooms *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:20px; margin-left:30%">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td >
-                        <input id = "price" value=" Monthly Rent *"style="color: rgb(104, 104, 104); border-radius: 12px; margin-bottom:20px; margin-left:30%">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td >
-                      <input type="text" placeholder="@A little bit about your house" id="description" style="width:300px;height:100px;border-radius: 4px;box-sizing: border-box; margin-left:18%">
-                    </td>
-                    
-                  </tr>
-                  <tr>
-                    <td >
-                      <div>
-                        <label style="padding-left: 32%;">
-                          <h4> Upload Photos </h4>
-                        </label>
-                        <input style="padding-left: 28%; padding-bottom: 3%;" type="file" id="t-image">
-                        <div class="invalid-feedback">
-                          Please choose a valid picture
-                        </div>
-                      </div>
-                      <div>
-                        <img id="selected-image" width="250" height="150" src="#" />
-                      </div>
-                      <div>
-                        <div class="progress bg-secondary">
-                          <div class="progress-bar bg-success" id="upload-progress" style="width: 0%;">0%</div>
+   
+    <section style="background-image: url('img/background3.png'); padding-top:10%;">
+      <table  style="margin-left:20%; background-color:rgba(255, 254, 254, 1); border-radius: 25px; padding:20px; width: 65%;">
         
-                        </div>
-                      </div>
-                      <div style="padding-top:4%; padding-left: 33%;">
-                        <button id="save-images" type="button" style="width:150px; height:60px;"
-                      class="btn btn-secondary">Upload Images to Database </button>
-                      </div>
-    
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p id = "putCookie" style=" margin-left:37%">cookie goes here</p>
-                      <button onclick="LPostData()" class="btn btn-primary" style="width: 50%;  margin-left:25%; margin-bottom: 9%;">Update</button>
+          <tr>
+            <th colspan="2">
+              <h1 style="text-align: center; font-size: 350%;margin-top: 2%;">Sign up Landlord</h1>
+            </th>
+          </tr>
           
-                    </td>
-                  </tr>
-                </thead>
-                </div>
-            
-                </table>    
-    
-        </section>
-        <p style="padding-bottom: 10%;"></p>
-          <section  style="background-color:rgb(250,82,29); height:30%;">
-            <div class="container">
-              
-              <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                  <style type="text/css">
-                    .tg  {border-collapse:collapse;border-spacing:0;width:25%;height:25%}
-                    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-                      overflow:hidden;padding:10px 5px;word-break:normal;}
-                    .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-                      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-                    .tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top;width:25%;height:25%}
-                    </style>
-                    
-                  <div class="p-5" style="text-align: center;">
-                   <a href="/register.html" class="btn btn-primary btn-xl rounded-pill mt-6">Sign Up</a>
-                  </div>
-                </div>
-                <div class="col-lg-6 order-lg-1">
-                  <div class="p-5">
-                    <h2 class="display-4" style="text-align: center">Find your dream HouseM8's!</h2>
-                  </div>
+        
+          <tr>
+            <td style="width: 50% ; padding-left: 10%;">
+              <input id = "name" value=" Full Name *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:10px;margin-top:35px; margin-left:15%">
+              <input id = "phone" value=" Phone No *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:10px;margin-top:25px; margin-left:15%">
+              <input id = "numRoom" value=" Available Rooms *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:10px;margin-top:25px; margin-left:15%">
+              <input id = "city" value=" Location *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:10px;margin-top:25px; margin-left:15%">
+              <input id = "price" value=" Monthly Rent *"style="color: rgb(104, 104, 104);border-radius: 12px;margin-bottom:10px;margin-top:25px; margin-left:15%">
+              <input type="text" placeholder="@A little bit about your house" id="description" style="width:300px;height:100px;border-radius: 4px;box-sizing: border-box; margin-left:0%;margin-top: 25px;margin-bottom:10px">
+
+            </td>
+            <td>
+              <div>
+                <label>
+                  <h3 style="padding-left:90%;"> Upload Photos </h3> 
+                </label>
+                <input type="file" id="ll-image" style="padding-left:28%; padding-bottom: 3%; padding-top:2%"> <!--This is essential Jay!-->
+                <div class="invalid-feedback">                                                  <!--Essentially essential-->
+                  Please choose a valid picture
                 </div>
               </div>
-            </div>
-            
-          </section>
+              <div>
+                <img id="selected-image" width="250" height="150" src="#" /><!-- also essential-->
+
+                <button id="save-images" type="button" style="width:150px; height:60px; margin-left:30%;margin-top:3%; margin-bottom: 2%;"
+                  class="btn btn-dark bg-light text-dark">Upload Images to Database </button> <!--Super essential button-->
+              </div>
+              <div>
+                <div class="progress bg-secondary">
+                  <div class="progress-bar bg-success" id="upload-progress" style="width: 0%;">0%</div> <!--Essential divs-->
+
+                </div>
+              </div>
+              
+              </div>
+              <div>
+                
+              </div>
+
+
+              <br> <br> <br>
+
+              <div id="result"> </div>  <!--This one is super duper essential :)-->
+
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button class="btn btn-primary btn-xl rounded-pill mt-5" style="margin-left: 35%" onclick="LPostData()">Submit</button>
+            </td>
+          </tr>
+        
+        </table>
+     
+    </section>
+
 
 
 
@@ -413,7 +347,6 @@
                
 
                 /*var firestoreRef = firebase.collection("Images");
-
                 firestoreRef.collection("imageData").doc().set(imageData).then(() => {
                   console.log("Doc successfully uploaded");
                 });*/
@@ -467,7 +400,63 @@
 
 
 
-    
+
+    <section style="background-color:rgb(250,82,29); height:30%; padding-top: 7%;">
+      <div class="container">
+
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <style type="text/css">
+              .tg {
+                border-collapse: collapse;
+                border-spacing: 0;
+                width: 25%;
+                height: 25%
+              }
+
+              .tg td {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+              }
+
+              .tg th {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                overflow: hidden;
+                padding: 10px 5px;
+                word-break: normal;
+              }
+
+              .tg .tg-0pky {
+                border-color: inherit;
+                text-align: center;
+                vertical-align: top;
+                width: 25%;
+                height: 25%
+              }
+            </style>
+
+
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="p-5">
+              <h2 class="display-4" style="text-align: center">Find your dream HouseM8's!</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
     <!-- Footer -->
     <footer class="py-5 bg-black">
       <div class="container">
