@@ -735,3 +735,69 @@ exports.lgetmatches3 = functions.https.onRequest((request, response) => {
 		});
 	});
 });
+
+exports.getmatches2 = functions.https.onRequest((request, response) => {
+	console.log('here');
+	
+	cors(request, response, () => {
+		console.log('hero');
+		var recieved = request.body;
+		console.log("rec"+recieved);
+		console.log('hero1');
+		var myData =[];
+		return admin.firestore().collection('matches').where("tid","==",recieved).get().then((snapshot) => {
+			
+			if (snapshot.empty) {
+				console.log('No matching documents333');
+				response.send(myData);
+				return;
+			}
+			var myString ="";
+			 snapshot.forEach((doc) => {
+				console.log("hero2");
+				var uid= (doc.data()["lid"]);
+					 
+				console.log("doc data"+doc.data()["lid"]);
+
+				 return admin.firestore().collection('Landlordprofile').where("uid","==",uid).get().then((snapshot) => {
+					if (snapshot.empty) {
+						console.log('No matching documents444');
+						response.send(myData);
+						return;
+					}
+					snapshot.forEach((doc) => {
+						console.log("har har");
+						//var uid= (doc.data()["uid"]);
+						let docObj = {};
+                		docObj.id = doc.id;
+						
+                		myData.push(Object.assign(docObj, doc.data()));
+						myString +=Object.assign(docObj, doc.data());
+						console.log(myData);
+						console.log("myString:"+myString);
+
+					});
+				
+					response.send(myData);
+					console.log("aggg"+myData);
+					myString +=myData;
+			});
+			
+			
+			});
+			console.log("ooooh"+myData);
+			//response.send(myData);
+				console.log("argggg")
+				
+			
+
+
+
+
+
+
+
+
+		});
+	});
+});
