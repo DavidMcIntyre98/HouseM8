@@ -143,8 +143,8 @@ function userType()
                 var uType = xhr.responseText;
                // console.log ("hi" +uType.value);
                 console.log("herrr"+uType);
-                if (uType =="tenant"){document.getElementById("Utype").value="tenant";}
-                else{document.getElementById("Utype").value="landlord";}
+                document.cookie = "uType=" + uType;
+                console.log(document.cookie);
                 //document.getElementById("userType").value=xhr.responseText;
                 getrooms();
                 

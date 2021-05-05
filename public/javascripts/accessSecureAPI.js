@@ -52,6 +52,7 @@ function logout() {
         // Reset cookie
         document.cookie = "accessToken= ";
         document.cookie = "uid= ";
+        document.cookie = "uType= ";
         // Redirect to the home page
         window.location.href = "/index.html"
         // Sign-out successful.
