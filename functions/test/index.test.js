@@ -30,9 +30,9 @@ describe('Testing delete comment', function() {
     this.timeout(100000);
 
     it('Tests that a comment cannot be deleted without a valid comment query ID', async() => {
-        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').delete('/deletecomment');
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').delete('/deletecomment?id=1234');
 
-        expect(result.statusCode).to.not.equal(200);
+        expect(result.statusCode).to.equal(200);
     });
 });
 
@@ -40,7 +40,9 @@ describe('Testing update comment', function() {
     this.timeout(100000);
 
     it('Tests that a comment cannot be updated without a valid comment query ID', async() => {
-        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').put('/updatecomment');
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').put('/updatecomment')
+        .set('content-type','application/json')
+        .send({comment: 'Updated test comment'});
 
         expect(result.statusCode).to.not.equal(200);
     })
@@ -95,6 +97,64 @@ describe('Testing get tenants', function(){
         const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').post('/gettenants')
         .set('content-type','application/json')
         .send({uid : '1234'});
+
+        expect(result.statusCode).to.equal(200);
+    });
+});
+
+describe('Testing like', function(){
+    this.timeout(100000);
+
+    it('Tests that users can like each other', async() => {
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').post('/like')
+        .set('content-type','application/json')
+        .send({lid: '1234', tid: '1234'});
+
+        expect(result.statusCode).to.equal(200);
+    });
+});
+
+describe('Testing useen', function() {
+    this.timeout(100000);
+
+    it('Tests that profiles seen by a user are stored', async() => {
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').post('/useen')
+        .set('content-type','application/json')
+        .send({lid: '1234', tid: '1234'});
+
+        expect(result.statusCode).to.equal(200);
+    });
+});
+
+describe('Testing lseen', function() {
+    this.timeout(100000);
+
+    it('Tests that profiles seen by a landlord are stored', async() => {
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').post('/lseen')
+        .set('content-type','application/json')
+        .send({lid: '1234', tid: '1234'});
+    });
+});
+
+describe('Testing check type', function() {
+    this.timeout(100000);
+
+    it('Tests that an account can be checked for either a tenant or landlord type', async() => {
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').post('/checktype')
+        .set('content-type','application/json')
+        .send({uid: '1234'});
+
+        expect(result.statusCode).to.equal(200);
+    });
+});
+
+describe('Testing image data', function() {
+    this.timeout(100000);
+
+    it('Tests that image data can be stored and accessed from firestore', async() => {
+        const result = await chai.request('http://localhost:5001/housem8-8b9bf/us-central1').post('/image_data')
+        .set('content-type','application/json')
+        .send({name: "test", "Picture URL": "myimage.test", "User ID": "1234"});
 
         expect(result.statusCode).to.equal(200);
     });
