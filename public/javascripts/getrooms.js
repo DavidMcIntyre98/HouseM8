@@ -68,7 +68,7 @@ function getrooms() {
                 {
                     document.getElementById("viewing").value="end of Array";
                     document.getElementById("price").innerHTML=" ";
-                    document.getElementById("location").innerHTML=" ";
+                    document.getElementById("city").innerHTML=" ";
                     document.getElementById("test").innerHTML ="no profiles matching";
                     document.getElementById("image").src = "none"
             
