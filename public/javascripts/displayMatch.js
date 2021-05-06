@@ -29,7 +29,7 @@ function displayMatch(){
         if (xhr.readyState === DONE) {
             if (xhr.status === OK) {
                 var matches = JSON.parse(xhr.responseText);
-                //console.log(roomsString);
+                console.log(roomsString);
                 if (matches[0] == undefined){
                     document.getElementById("name").innerHTML="No matches yet, get swiping!"
                     document.getElementById("location").innerHTML = " ";
