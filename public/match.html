@@ -88,6 +88,16 @@ document.getElementById("cost").innerHTML =  detail[3];
 }
 
 </script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script src="/__/firebase/8.3.0/firebase-analytics.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="/__/firebase/8.3.0/firebase-auth.js"></script>
+<script src="/__/firebase/8.3.0/firebase-firestore.js"></script>
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="javascripts/login.js"></script>
+<script src="javascripts/accessSecureAPI.js"></script>
 </head>
 
 <body onload="show(); userType();" style="background-image: url('img/background3.png'); height: 60%;">
@@ -107,7 +117,7 @@ document.getElementById("cost").innerHTML =  detail[3];
             <a onclick="logout()" class="nav-link" style="color: white; font-size: medium;">Log Out</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"style="color: white; font-size: medium;padding right:0%" href="/user.html">My Account</a>
+            <a class="nav-link"style="color: white; font-size: medium;padding right:0%" href="/inbox.html">Matches</a>
           </li>
         </ul>
       </div>
