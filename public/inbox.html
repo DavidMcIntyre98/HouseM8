@@ -51,10 +51,11 @@
  
     }
     function yes(){
+      displayMatchUp();
       var img = document.getElementById("image");
       
       img.src="img/temp2.png";
-      document.getElementById("test").innerHTML = "hello";
+      document.getElementById("name").innerHTML = "hello";
 
 document.getElementById("location").innerHTML =  "test2";
 
@@ -62,10 +63,11 @@ document.getElementById("price").innerHTML =  "test3";
 
     }
     function no(){
+      displayMatchDown();
       var img = document.getElementById("image");
       
       img.src="img/temp2.png";
-      document.getElementById("test").innerHTML = "hello";
+      document.getElementById("name").innerHTML = "hello";
 
 document.getElementById("location").innerHTML =  "test2";
 
@@ -74,10 +76,11 @@ document.getElementById("price").innerHTML =  "test3";
     }
 </script>
 
-<script src="javascripts/displayMatch.js"></script>
+<script src="javascripts/displayMatchUp.js"></script>
+<script src="javascripts/displayMatchDown.js"></script>
 </head>
 
-<body onload="show(), displayMatch()" style="background-image: url('img/background1.png');">
+<body onload="show()" style="background-image: url('img/background1.png');">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -214,7 +217,7 @@ div{
   <tr>
     <td class="outerL">
       <div style="float:left; padding-top: 5%; padding-left: 5%;">
-        <button class="button"style="vertical-align:left; height:220px" onclick="no()">&#10094;  NO</button>
+        <button class="button"style="vertical-align:left; height:220px" onclick="no()">&#10094;  PREV</button>
        </div>
     </td>
     <td class="middle">
@@ -231,7 +234,7 @@ div{
      <div style="position:absolute; width: 25%;z-index:0; height:49%;top:30%; left:50%; opacity: 20%; border: black; outline: black; border-style: solid; background-color: white;">
     
     </div>
-    <div style="position:absolute; left:56%; top:32%;z-index-1;">  
+    <div style="position:absolute; left:56%; top:32%;">  
       <h1 class="masthead-subheading mb-0">Name:</h1> <h3 class="masthead-subheading mb-0" id="name" style="color:white;"> </h1>
       <pre></pre> 
       <h1 class="masthead-subheading mb-0">Location: </h1> <h3 class="masthead-subheading mb-0" id="location" style="color:white;  "> </h1>
@@ -244,11 +247,11 @@ div{
       <pre></pre>
       </div>
     </div>
-      
+    
     </td>
     <td class="outerR">
       <div style="float:right;  ">
-        <button class="button"style="vertical-align:right; height:220px; z-index: 1000;" onclick="yes()">YES  &#10095;</button>
+        <button class="button"style="vertical-align:right; height:220px; z-index: 1000;" onclick="yes()">NEXT  &#10095;</button>
       </div>
     </td>
   </tr>
@@ -334,7 +337,8 @@ div{
         </div>
       </div>
     </div>
-    
+    <p id="array"></p>
+    <p id="myHiddenField"></p>
   </section>
   <!-- Footer -->
   <footer class="py-5 bg-black">
@@ -356,7 +360,7 @@ div{
 
   <!-- Initialize Firebase -->
   <script src="/__/firebase/init.js"></script>
-
+  
 </body>
 
 </html>
