@@ -881,6 +881,33 @@ exports.getmatches3 = functions.https.onRequest((request, response) => {
 		});
 	});
 
+	exports.getchat = functions.https.onRequest((request, response) => {
+		cors(request, response, () => {
+			// function body here - use the provided req and res from cors
+			recieved =request.body;
+			lid = recieved.lid;
+			tid = recieved.tid;
+			var myData =[];
+			admin.firestore().collection("matches").where("lid","=",lid).where("tid","=",tid).get().then((snapshot) =>	{
+				if (snapshot.empty) {
+					console.log('No matching documents444');
+					response.send(myData);
+					return;
+				}
+					snapshot.forEach((doc) => {
+						let docObj = {};
+                		docObj.id = doc.id;
+						
+                		myData.push(Object.assign(docObj, doc.data()));
+						response.send(myData);
+
+			});
+		});
+	});
+});
+
+
+
 	
 	
 	exports.getmatchid = functions.https.onRequest((request, response) => {
